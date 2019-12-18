@@ -1,0 +1,99 @@
+<div id="works">
+    <div id="worksBackground" class="fixedBackground">
+        <app-title-opacity [title]=title></app-title-opacity>
+    </div>
+    <app-transparent></app-transparent>
+    <div id="worksNav">
+        <ul>
+            <li><a (click)="onScrollElem('worksAll')">Всі твори</a></li>
+            <li><a (click)="onScrollElem('worksSelected')">Вибрані твори</a></li>
+            <li><a (click)="onScrollElem('worksSoundcloud')">Аудіо</a></li>
+            <li><a (click)="onScrollElem('worksYouTube')">Відео</a></li>
+        </ul>
+    </div>
+    <div id="worksAll" class="worksSection">
+        <h4>Всі твори</h4>
+        <div id="worksChaptered" *ngIf="works">
+            <h6>Соло</h6>
+            <p *ngFor="let piece of works | chapterizeWorks: 'solo'"><b>{{piece.title}}</b> -
+                                            {{piece.instr}} -
+                                            {{piece.duration}}' -
+                                            {{piece.year}}
+            </p>
+            <h6>Камерні</h6>
+            <p *ngFor="let piece of works | chapterizeWorks: 'chamber(2-4)'"><b>{{piece.title}}</b> -
+                                            {{piece.instr}} -
+                                            {{piece.duration}}' -
+                                            {{piece.year}}
+            </p>
+            <h6>Ансамбль</h6>
+            <p *ngFor="let piece of works | chapterizeWorks: 'ensemble(5+)'"><b>{{piece.title}}</b> -
+                                            {{piece.instr}} -
+                                            {{piece.duration}}' -
+                                            {{piece.year}}
+            </p>
+            <h6>Оркестр</h6>
+            <p *ngFor="let piece of works | chapterizeWorks: 'orchestra'"><b>{{piece.title}}</b> -
+                                            {{piece.instr}} -
+                                            {{piece.duration}}' -
+                                            {{piece.year}}
+            </p>
+            <h6>Хор</h6>
+            <p *ngFor="let piece of works | chapterizeWorks: 'choir'"><b>{{piece.title}}</b> -
+                                            {{piece.instr}} -
+                                            {{piece.duration}}' -
+                                            {{piece.year}}
+            </p>
+            <h6>Голос/Хор і Ансамбль/Оркестр</h6>
+            <p *ngFor="let piece of works | chapterizeWorks: 'voice/choir & ensemble/orchestra'"><b>{{piece.title}}</b> -
+                                            {{piece.instr}} -
+                                            {{piece.duration}}' -
+                                            {{piece.year}}
+            </p>
+            <h6>Електроніка</h6>
+            <p *ngFor="let piece of works | chapterizeWorks: 'electronics'"><b>{{piece.title}}</b> -
+                                            {{piece.instr}} -
+                                            {{piece.duration}}' -
+                                            {{piece.year}}
+            </p>
+            <h6>Театр/Сцена</h6>
+            <p *ngFor="let piece of works | chapterizeWorks: 'theatre/stage'"><b>{{piece.title}}</b> -
+                                            {{piece.instr}} -
+                                            {{piece.duration}}' -
+                                            {{piece.year}}
+            </p>
+        </div>
+        <div id="chamberWorks"></div>
+    </div>
+    <div id="worksSelected" class="worksSection">
+        <h4>Вибрані твори</h4>
+        <div id="worksSelected" *ngIf="works">
+            <p *ngFor="let piece of works | selectedWorks"><b>{{piece.title}}</b> -
+                {{piece.instr}} -
+                {{piece.duration}}' -
+                {{piece.year}}</p>
+        </div>
+    </div>
+    <div id="worksSoundcloud" class="worksSection">
+        <h4>Аудіо</h4>
+        <iframe width="90%" height="450" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/942257329&color=%23d2c8c9&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
+    </div>
+    <div id="worksYouTube" class="worksSection">
+        <h4>Відео</h4>
+        <div class="carousel slide">
+            <div class="carousel-inner" id="videoSlides">
+                <div class="carousel-item active" id="vvv"> {{elem}}</div>
+                <div class="carousel-item">second</div>
+                <div class="carousel-item">third</div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </div>
+</div>

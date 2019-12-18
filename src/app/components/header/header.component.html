@@ -1,0 +1,22 @@
+<header (window:scroll)="fixedScroll()">
+    <div id="logo">
+        <a routerLink="home">Богдан Сегін</a>
+    </div>
+    <div id="menuArea">
+        <input type="checkbox" id="menuToggle">
+        <label for="menuToggle" class="menuOpen">
+            <div class="open"></div>
+        </label>
+        <div class="menu menuEffects" (click)="closeMenu()">
+            <div class="menuContent">
+                <ul>
+                    <li routerLinkActive="active"><a routerLink="about">Біо</a></li>
+                    <li routerLinkActive="active"><a routerLink="news">Новини</a></li>
+                    <li routerLinkActive="active"><a routerLink="works">Твори</a></li>
+                    <li routerLinkActive="active"><a routerLink="projects">Проєкти</a></li>
+                    <li routerLinkActive="active"><a routerLink="contact">Контакт</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</header>

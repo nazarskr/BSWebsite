@@ -1,0 +1,13 @@
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/** @enum {number} */
+var FilteringLogic = {
+    And: 0,
+    Or: 1,
+};
+export { FilteringLogic };
+FilteringLogic[FilteringLogic.And] = 'And';
+FilteringLogic[FilteringLogic.Or] = 'Or';
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiZmlsdGVyaW5nLWV4cHJlc3Npb24uaW50ZXJmYWNlLmpzIiwic291cmNlUm9vdCI6Im5nOi8vaWduaXRldWktYW5ndWxhci8iLCJzb3VyY2VzIjpbImxpYi9kYXRhLW9wZXJhdGlvbnMvZmlsdGVyaW5nLWV4cHJlc3Npb24uaW50ZXJmYWNlLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7Ozs7OztJQUdJLE1BQUc7SUFDSCxLQUFFIiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHsgSUZpbHRlcmluZ09wZXJhdGlvbiB9IGZyb20gJy4vZmlsdGVyaW5nLWNvbmRpdGlvbic7XG5cbmV4cG9ydCBlbnVtIEZpbHRlcmluZ0xvZ2ljIHtcbiAgICBBbmQsXG4gICAgT3Jcbn1cblxuLyoqXG4gKiBSZXByZXNlbnRzIGZpbHRlcmluZyBleHByZXNzaW9ucy5cbiAqL1xuZXhwb3J0IGRlY2xhcmUgaW50ZXJmYWNlIElGaWx0ZXJpbmdFeHByZXNzaW9uIHtcbiAgICBmaWVsZE5hbWU6IHN0cmluZztcbiAgICBjb25kaXRpb246IElGaWx0ZXJpbmdPcGVyYXRpb247XG4gICAgc2VhcmNoVmFsPzogYW55O1xuICAgIGlnbm9yZUNhc2U/OiBib29sZWFuO1xufVxuIl19

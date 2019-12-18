@@ -1,0 +1,27 @@
+#contact {
+    #contactBackground {
+        background-color: black;
+    }
+    #contactInfo {
+        background-color: lightgray;
+        padding: 50px;
+        text-align: center;
+    }
+    #contactForm {
+        background-color: white;
+        h2 {
+            text-align: center;
+            padding: 30px 0;
+        }
+        form {
+            width: 400px;
+            margin: auto;
+            .example-full-width {
+                width: 100%;
+            }
+            button {
+                margin: 30px 0;
+            }
+        }
+    }
+}

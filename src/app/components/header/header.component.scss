@@ -1,0 +1,193 @@
+@import '../../../variables.scss';
+#logo {
+    padding: 21px 35px;
+    a {
+        font-size: 19px;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+}
+#menuArea {
+    padding: 10px 40px;
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 10;
+    input {
+        display: none;
+    }
+    .menu {
+        .menuContent {
+            width: 450px;
+            position: static;
+            margin-top: -9px;
+            font-size: 14px;
+            ul {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-around;
+                list-style-type: none;
+                a {
+                    text-transform: uppercase;
+                    font-weight: bold;
+                }
+                a:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+}
+@media (max-width: 900px) { 
+    .open {
+        background-color: black;
+        width: 20px;
+        height: 2px;
+        display: block;
+        border-radius: 2px;
+        cursor: pointer;
+        position: relative;
+        top: 8px;
+    }
+    
+    .open:before {
+    content: "";
+        background-color: black;
+        width: 20px;
+        height: 2px;
+        display: block;
+        border-radius: 2px;
+        position: relative;
+        top: -6px;
+        transform: rotate(0deg);
+        transition: all 0.3s ease;
+    }
+    
+    .open:after {
+    content: "";
+        background-color: black;
+        width: 20px;
+        height: 2px;
+        display: block;
+        border-radius: 2px;
+        position: relative;
+        top: 4px;
+        transform: rotate(0deg);
+        transition: all 0.3s ease;
+    }
+    
+    .menuOpen {
+        width: 24px;
+        height: 20px;
+        display: block;
+        padding: 15px;
+        cursor: pointer;
+        float: right;
+    }
+    
+    .menuOpen:hover .open:before {
+        top: -9px;
+    }
+    
+    .menuOpen:hover .open:after {
+        top: 6px;
+    }
+    .menu {
+        position: fixed;
+        width: 100vw;
+        height: 100vh;
+        top: 0;
+        left: 0;
+        background: rgba(255, 255, 255, 0.9);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .menu {
+        .menuContent {
+            text-align: center;
+            ul {
+                display: block !important;
+                list-style: none;
+                padding: 0;
+                margin: 0 auto;
+                li {
+                    a {
+                        font-size: 25px;
+                        display: block;
+                        color: black;
+                        text-decoration: none;
+                        transition: color 0.2s;
+                        font-weight: bold;
+                        letter-spacing: 3px;
+                        padding: 10px 0;
+                    }
+                    a:hover {
+                        color: brown;
+                        text-decoration: none;
+                    }
+                }
+            }
+        }
+    }
+    .menuEffects {
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.5s, visibility 0.5s;
+    }
+    
+    .menuEffects ul {
+        transform: translateY(0%);
+        transition: all 0.5s;
+    }
+    
+    #menuToggle:checked ~ .menuEffects {
+        opacity: 1;
+        visibility: visible;
+        transition: opacity 0.5s;
+    }
+    
+    #menuToggle:checked ~ .menuEffects ul {
+        opacity: 1;
+    }
+    
+    #menuToggle:checked ~ .menuOpen .open {
+        background-color: transparent;
+    }
+    
+    #menuToggle:checked ~ .menuOpen .open:before {
+        content: "";
+        transform: rotate(45deg);
+        position: absolute;
+        top: 0px;
+        z-index: 11;
+    }
+    
+    #menuToggle:checked ~ .menuOpen .open:after {
+        content: "";
+        transform: rotate(-45deg);
+        position: relative;
+        top: 0px;
+        z-index: 11;
+    }
+    
+    #menuToggle:not(:checked) ~ .menuEffects ul {
+        transform: translateY(-30%);
+    }
+}
+
+@media screen and (max-height: 500px) {
+    .menu {
+        .menuContent {
+            padding-bottom: 0;
+            margin-top: -120px;
+            ul {
+                li {
+                    a {
+                        font-size: 14px;
+                    }
+                }
+            }
+        }
+    }
+}

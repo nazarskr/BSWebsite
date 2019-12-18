@@ -1,0 +1,51 @@
+<div id="contact">
+    <div id="contactBackground" class="fixedBackground">
+        <app-title-opacity [title]=title></app-title-opacity>
+    </div>
+    <app-transparent></app-transparent>
+    <div id="contactInfo">
+        <h4>Bohdan Sehin</h4>
+        <div>
+            <p>Email: 0000@gmail.com</p>
+        </div>
+    </div>
+    <div id="contactForm">
+        <h2>Send me a message</h2>
+        <form class="example-form" (submit)="onAddContact(contactForm)" #contactForm="ngForm">
+            <mat-form-field class="example-full-width">
+                <input 
+                    matInput 
+                    type="text"
+                    name="guestName"
+                    ngModel 
+                    required
+                    placeholder="Enter your name:"
+                    #guestName="ngModel">
+                    <mat-error *ngIf="guestName.invalid">Please enter your name.</mat-error>
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
+                <input 
+                    matInput 
+                    type="email"
+                    name="guestEmail"
+                    ngModel 
+                    required
+                    placeholder="Enter your e-mail:"
+                    #guestEmail="ngModel">
+                    <mat-error *ngIf="guestEmail.invalid">Please enter your e-mail.</mat-error>
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
+                <textarea 
+                    matInput 
+                    name="guestMessage" 
+                    ngModel
+                    required
+                    placeholder="Leave a message"
+                    #guestMessage="ngModel">
+                </textarea>
+                <mat-error *ngIf="guestMessage.invalid">Please leave some message.</mat-error>
+            </mat-form-field>
+            <button mat-stroked-button type="submit">Send</button>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,24 @@
+#adminWorksInner {
+    background-color: lightgray;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    #piecesTable {
+        width: 90vw;
+    }
+    #preAddNewPiece {
+        padding: 50px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    #addNewPiece {
+        width: 400px;
+        margin: 20px;
+        h4 {
+            text-align: center;
+        }
+    }
+}

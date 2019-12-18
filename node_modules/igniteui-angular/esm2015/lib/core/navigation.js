@@ -1,0 +1,8 @@
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+export {} from './navigation/IToggleView';
+export { IgxNavigationService } from './navigation/nav.service';
+export { IgxNavigationToggleDirective, IgxNavigationCloseDirective, IgxNavigationModule } from './navigation/directives';
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoibmF2aWdhdGlvbi5qcyIsInNvdXJjZVJvb3QiOiJuZzovL2lnbml0ZXVpLWFuZ3VsYXIvIiwic291cmNlcyI6WyJsaWIvY29yZS9uYXZpZ2F0aW9uLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7Ozs7QUFBQSxlQUFjLDBCQUEwQixDQUFDO0FBQ3pDLHFDQUFjLDBCQUEwQixDQUFDO0FBQ3pDLCtGQUFjLHlCQUF5QixDQUFDIiwic291cmNlc0NvbnRlbnQiOlsiZXhwb3J0ICogZnJvbSAnLi9uYXZpZ2F0aW9uL0lUb2dnbGVWaWV3JztcbmV4cG9ydCAqIGZyb20gJy4vbmF2aWdhdGlvbi9uYXYuc2VydmljZSc7XG5leHBvcnQgKiBmcm9tICcuL25hdmlnYXRpb24vZGlyZWN0aXZlcyc7XG4iXX0=

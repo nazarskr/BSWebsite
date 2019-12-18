@@ -1,0 +1,115 @@
+<div id="adminWorksInner">
+    <div id="piecesTable">
+        <table mat-table [dataSource]="works" class="full-width">
+            <ng-container matColumnDef="position">
+                <th mat-header-cell *matHeaderCellDef>#</th>
+                <td mat-cell *matCellDef="let piece; let i = index"> {{i}}</td>
+            </ng-container>
+            <ng-container matColumnDef="title">
+                <th mat-header-cell *matHeaderCellDef>Title</th>
+                <td mat-cell *matCellDef="let piece">{{piece.title}}</td>
+            </ng-container>
+            <ng-container matColumnDef="instr">
+                <th mat-header-cell *matHeaderCellDef>Instr</th>
+                <td mat-cell *matCellDef="let piece">{{piece.instr}}</td>
+            </ng-container>
+            <ng-container matColumnDef="duration">
+                <th mat-header-cell *matHeaderCellDef>Duration</th>
+                <td mat-cell *matCellDef="let piece">{{piece.duration}}</td>
+            </ng-container>
+            <ng-container matColumnDef="year">
+                <th mat-header-cell *matHeaderCellDef>Year</th>
+                <td mat-cell *matCellDef="let piece">{{piece.year}}</td>
+            </ng-container>
+            <ng-container matColumnDef="chapter">
+                <th mat-header-cell *matHeaderCellDef>Chapter</th>
+                <td mat-cell *matCellDef="let piece">{{piece.chapter}}</td>
+            </ng-container>
+            <ng-container matColumnDef="selected">
+                <th mat-header-cell *matHeaderCellDef>Selected</th>
+                <td mat-cell *matCellDef="let piece">{{piece.selected}}</td>
+            </ng-container>
+            <ng-container matColumnDef="edit">
+                <th mat-header-cell *matHeaderCellDef>Edit</th>
+                <td mat-cell *matCellDef="let piece">
+                    <button mat-mini-fab color="accent" (click)="editPiece(piece)">Edit</button>
+                </td>
+            </ng-container>
+            <ng-container matColumnDef="delete">
+                <th mat-header-cell *matHeaderCellDef>Delete</th>
+                <td mat-cell *matCellDef="let piece">
+                    <button mat-mini-fab color="warn" (click)="deletePiece(piece)">Del</button>
+                </td>
+            </ng-container>
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>          
+    </div>
+    <div id="addNewPiece" [hidden]="submitted">
+        <h4 [hidden]="update">Додати новий твір</h4>
+        <h4 [hidden]="!update">Редагувати твір</h4>
+        <form class="example-form" (ngSubmit)="onSubmit()" #adminWorksForm="ngForm">
+            <mat-form-field class="full-width">
+                <input 
+                    matInput 
+                    type="text"
+                    id="pieceTitle"
+                    name="pieceTitle"
+                    [(ngModel)]="piece.title"
+                    required
+                    placeholder="Назва твору (без лапок):">
+                    <mat-error *ngIf="!piece.title">Введи назву твору!</mat-error>
+            </mat-form-field>
+            <mat-form-field class="full-width">
+                <input 
+                    matInput 
+                    id="pieceInstr"
+                    name="pieceInstr"
+                    [(ngModel)]="piece.instr"
+                    required
+                    placeholder="Інструментальний склад (vn, fl, etc.):">
+                    <mat-error *ngIf="!piece.instr">Введи інструментальний склад!</mat-error>
+            </mat-form-field>
+            <mat-form-field class="full-width">
+                <input 
+                    matInput 
+                    type="number"
+                    id="pieceDuration"
+                    name="pieceDuration"
+                    [(ngModel)]="piece.duration"
+                    required
+                    placeholder="Тривалість твору (хв):">
+                    <mat-error *ngIf="!piece.duration">Введи тривалість твору!</mat-error>
+            </mat-form-field>
+            <mat-form-field class="full-width">
+                <input 
+                    matInput 
+                    type="text"
+                    id="pieceYear"
+                    name="pieceYear"
+                    [(ngModel)]="piece.year"
+                    required
+                    placeholder="Рік написання (2015, 2001/2017):">
+                    <mat-error *ngIf="!piece.year">Введи інструментальний склад!</mat-error>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label class="full-width">Вибери розділ</mat-label>
+                <mat-select id="pieceChapter" name="pieceChapter" [(ngModel)]="piece.chapter" #chapterSelect>
+                    <mat-option *ngFor="let chapter of chapters" [value]="chapter">
+                    {{chapter}}
+                    </mat-option>
+                </mat-select>
+                <mat-error *ngIf="chapterSelect.errorState && chapter.hasError('required')">Вибери розділ!</mat-error>
+            </mat-form-field>
+            <section>
+                <mat-checkbox id="pieceSelected" name="pieceSelected" [(ngModel)]="piece.selected">Вибрані</mat-checkbox>
+            </section>
+            <br>
+            <button mat-stroked-button type="submit" [hidden]="update">Додати</button>
+            <button mat-stroked-button (click)="updatePiece()" [hidden]="!update">Оновити</button>
+        </form>
+    </div>
+    <div [hidden]="!submitted" id="preAddNewPiece">
+        <button mat-raised-button (click)="newPiece()">Новий</button>
+    </div>
+</div>

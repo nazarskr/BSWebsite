@@ -1,0 +1,27 @@
+<div id="adminAboutInner">
+    <mat-form-field class="full-width">
+        <textarea
+            rows="15" 
+            matInput 
+            id="aboutBio"
+            name="aboutBio"
+            [(ngModel)]="bio"
+            required
+            placeholder="Біо (англ)">
+        </textarea
+        >
+        <mat-error *ngIf="bio">Тут має бути біографія</mat-error>
+    </mat-form-field>
+    <mat-form-field class="full-width">
+        <input 
+            matInput 
+            id="aboutPressKitUrl"
+            name="aboutPressKitUrl"
+            [(ngModel)]="pressKitUrl"
+            required
+            readonly
+            placeholder="Посилання на прескіт">
+            <mat-error *ngIf="pressKitUrl">Закинь файл</mat-error>
+    </mat-form-field>
+    <p>Відвідин сайту: {{counter}}</p>
+</div>

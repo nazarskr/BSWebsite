@@ -1,0 +1,11 @@
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/** @enum {string} */
+const InteractionMode = {
+    DropDown: 'dropdown',
+    Dialog: 'dialog',
+};
+export { InteractionMode };
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiZW51bXMuanMiLCJzb3VyY2VSb290Ijoibmc6Ly9pZ25pdGV1aS1hbmd1bGFyLyIsInNvdXJjZXMiOlsibGliL2NvcmUvZW51bXMudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7Ozs7O0lBS0ksVUFBVyxVQUFVO0lBQ3JCLFFBQVMsUUFBUSIsInNvdXJjZXNDb250ZW50IjpbIi8qKlxuICogVGhpcyBlbnVtZXJhdGlvbiBpcyB1c2VkIHRvIGNvbmZpZ3VyZSB3aGV0aGVyIHRoZSBkYXRlL3RpbWUgcGlja2VyIGhhcyBhbiBlZGl0YWJsZSBpbnB1dCB3aXRoIGRyb3AgZG93blxuICogb3IgaXMgcmVhZG9ubHkgLSB0aGUgZGF0ZS90aW1lIGlzIHNlbGVjdGVkIG9ubHkgdGhyb3VnaCBhIGRpYWxvZy5cbiAqL1xuZXhwb3J0IGVudW0gSW50ZXJhY3Rpb25Nb2RlIHtcbiAgICBEcm9wRG93biA9ICdkcm9wZG93bicsXG4gICAgRGlhbG9nID0gJ2RpYWxvZydcbn1cbiJdfQ==

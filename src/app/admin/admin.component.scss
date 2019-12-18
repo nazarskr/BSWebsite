@@ -1,0 +1,43 @@
+#admin {
+    #adminBackground {
+        background-color: gray;
+    }
+    #adminList {
+        background-color: white;
+        padding: 10px 50px;
+        position: -webkit-sticky;
+        position: sticky;
+        top: 70px;
+        z-index: 3;
+        ul {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            text-align: center;
+            margin-bottom: 0;
+            li {
+                list-style-type: none;
+                text-transform: uppercase;
+                a {
+                    cursor: pointer;
+                }
+                a:hover {
+                    color: black;
+                }
+            }
+        }
+    }
+}
+@media (max-width: 500px) {
+    #admin {
+        #adminList {
+            ul {
+                li {
+                    a {
+                        font-size: 12px;
+                    }
+                }
+            }
+        }
+    }
+}

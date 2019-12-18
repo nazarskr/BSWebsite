@@ -1,0 +1,48 @@
+footer {
+    color: grey;
+    #footerInner {
+        width: 400px;
+        #footerLogo {
+            margin: 25px;
+            a {
+                font-size: 19px;
+                font-weight: bold;
+                text-transform: uppercase;
+            }
+        }
+        #footerMenu {
+            margin: 25px;
+            ul {
+                display: flex;
+                justify-content: space-around;
+                list-style-type: none;
+            }
+        }
+        #footerSocial {
+            margin: 25px;
+            display: flex;
+            justify-content: space-around;
+            div {
+                width: 30px;
+                height: 30px;
+                background-color: grey;
+                border-radius: 50%;
+                a {
+                    img {
+                        width: 30px;
+                        height: 30px;  
+                    }
+                }
+            }
+        }
+        #footerCopyright {
+            margin: 25px;
+        }
+        a {
+            color: grey;
+        }
+        hr {
+            background-color: lightgrey;
+        }
+    }
+}

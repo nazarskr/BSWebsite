@@ -1,0 +1,79 @@
+#works {
+    margin-bottom: 0;
+    #worksBackground {
+        background-image: url('../../../assets/worksBack.JPG');
+    }
+    #worksNav {
+        background-color: white;
+        padding: 10px 50px;
+        position: -webkit-sticky;
+        position: sticky;
+        top: 70px;
+        z-index: 3;
+        ul {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            text-align: center;
+            margin-bottom: 0;
+            li {
+                list-style-type: none;
+                text-transform: uppercase;
+                a {
+                    cursor: pointer;
+                }
+                a:hover {
+                    color: black;
+                }
+            }
+        }
+    }
+    .worksSection {
+        display: flex;
+        flex-direction: column;
+        padding: 20px;
+        h4 {
+            text-align: center;
+            text-transform: uppercase;
+            padding: 50px 0;
+            font-size: 20px;
+            letter-spacing: 3px;
+        }
+    }
+    #worksAll {
+        background-color: white;
+        #worksChaptered {
+            h6 {
+                text-transform: uppercase;
+            }
+        }
+    }
+    #worksSelected {
+        background-color: gray;
+    }
+    #worksSoundcloud {
+        width: 100vw;
+        background-color: lightgray;
+        align-items: center;
+    }
+    #worksYouTube {
+        background-color: gray;
+        #videoSlides {
+            width: 640px;
+            height: 480px;
+        }
+    }
+}
+@media (max-width: 500px) {
+    #works {
+        #worksNav {
+            ul {
+                li {
+                    a {
+                        font-size: 12px;
+                    }
+                }
+            }
+        }
+    }
+}

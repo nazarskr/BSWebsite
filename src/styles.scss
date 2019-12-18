@@ -1,0 +1,52 @@
+@import "../node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css";
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+header {
+    width: 100vw;
+    height: 70px;
+    background-color: white;
+    position: fixed;
+    z-index: 9999;
+}
+footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: black;
+}
+
+
+
+
+a {
+    color: black;
+}
+a:hover {
+    text-decoration: none;
+}
+a:visited {
+    color: black;
+}
+.fixedBackground {
+    position: fixed;
+    top: 70px;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: -2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.full-width {
+    width: 100%;
+}

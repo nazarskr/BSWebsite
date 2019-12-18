@@ -1,0 +1,17 @@
+<div id="about">
+    <div id="aboutBackground" class="fixedBackground">
+        <app-title-opacity [title]=title></app-title-opacity>
+    </div>
+    <app-transparent></app-transparent>
+    <div id="aboutBio" *ngIf="about">
+        <h2>Богдан Сегін</h2>
+        <p>{{about.bio}}</p>
+        <div id="aboutPressKit">
+            <button mat-stroked-button><a download="filename" href="{{about.pressKitUrl}}" target="_blank">Прес-кіт</a></button>
+            <p>Includes everything you fine press people need to do your work.<br>
+            High res images, a full biography and other nice things you might need from time to time. <br>
+                    All packed in an almighty ZIP archive and made with a Mac. <br>
+                    If you happen to need something else, just let us know.</p>
+        </div>
+    </div>
+</div>

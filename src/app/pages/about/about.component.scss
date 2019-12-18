@@ -1,0 +1,27 @@
+#about {
+    margin-bottom: 0;
+    #aboutBackground {
+        background-image: url('../../../assets/aboutBack.JPG');
+    }
+    #aboutBio {
+        background-color: white;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        h2 {
+            padding: 20px;
+        }
+        p {
+            margin: 20px 30px;
+            text-align: justify;
+        }
+        #aboutPressKit {
+            p {
+                text-align: center;
+                font-size: 10px;
+            }
+        }
+    }
+}
