@@ -35,9 +35,14 @@
         h4 {
             text-align: center;
             text-transform: uppercase;
-            padding: 50px 0;
+            padding: 20px 0;
             font-size: 20px;
-            letter-spacing: 3px;
+            letter-spacing: 4px;
+        }
+        p {
+            a:hover {
+                color: brown;
+            }
         }
     }
     #worksAll {
@@ -45,24 +50,58 @@
         #worksChaptered {
             h6 {
                 text-transform: uppercase;
+                letter-spacing: 4px;
+                padding: 20px 0;
             }
         }
     }
     #worksSelected {
-        background-color: gray;
+        background-color: white;
     }
     #worksSoundcloud {
         width: 100vw;
-        background-color: lightgray;
+        background-color: white;
         align-items: center;
     }
-    #worksYouTube {
-        background-color: gray;
-        #videoSlides {
-            width: 640px;
-            height: 480px;
+    #worksVideo {
+        background-color: white;
+        #worksVideoExamples {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            .worksVideoExample {
+                width: 300px;
+                margin: 20px;
+                text-align: center;
+                cursor: pointer;
+                .worksVideoImg {
+                    img {
+                        width: 300px;
+                        height: 300px;
+                    }
+                    margin-bottom: 20px;
+                }
+                .worksVideoTitle {
+                    text-transform: uppercase;
+                    font-weight: 700;
+                    .worksVideoYear {
+                        font-weight: normal;
+                    }
+                }
+            }
         }
     }
+}
+app-video-details {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.9);
+    position: fixed;
+    top: 0;
 }
 @media (max-width: 500px) {
     #works {

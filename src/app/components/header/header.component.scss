@@ -1,10 +1,15 @@
 @import '../../../variables.scss';
 #logo {
     padding: 21px 35px;
+    display: flex;
     a {
         font-size: 19px;
         font-weight: bold;
         text-transform: uppercase;
+    }
+    p {
+        margin-left: 20px;
+        line-height: 29px;
     }
 }
 #menuArea {
@@ -31,8 +36,8 @@
                     text-transform: uppercase;
                     font-weight: bold;
                 }
-                a:hover {
-                    text-decoration: underline;
+                a:hover, .navActive {
+                    color: brown;
                 }
             }
         }
@@ -124,7 +129,6 @@
                     }
                     a:hover {
                         color: brown;
-                        text-decoration: none;
                     }
                 }
             }
@@ -175,7 +179,6 @@
         transform: translateY(-30%);
     }
 }
-
 @media screen and (max-height: 500px) {
     .menu {
         .menuContent {

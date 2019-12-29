@@ -5,6 +5,10 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    h2 {
+        padding: 30px;
+        text-align: center;
+    }
     #piecesTable {
         width: 90vw;
     }

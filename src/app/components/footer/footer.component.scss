@@ -9,6 +9,9 @@ footer {
                 font-weight: bold;
                 text-transform: uppercase;
             }
+            a:hover {
+                color: white;
+            }
         }
         #footerMenu {
             margin: 25px;
@@ -16,6 +19,9 @@ footer {
                 display: flex;
                 justify-content: space-around;
                 list-style-type: none;
+                a:hover {
+                    color: white;
+                }
             }
         }
         #footerSocial {
@@ -30,7 +36,14 @@ footer {
                 a {
                     img {
                         width: 30px;
-                        height: 30px;  
+                        height: 30px; 
+                    }
+                }
+                a:hover {
+                    transition: filter .5s;
+                    filter: invert(100);
+                    img {
+                        transform: scale(0.9);
                     }
                 }
             }

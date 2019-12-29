@@ -1,6 +1,6 @@
 <header (window:scroll)="fixedScroll()">
     <div id="logo">
-        <a routerLink="home">Богдан Сегін</a>
+        <a routerLink="home" (click)="removeActive()">Богдан Сегін</a> <p>УКР | ENG</p>
     </div>
     <div id="menuArea">
         <input type="checkbox" id="menuToggle">
@@ -10,11 +10,21 @@
         <div class="menu menuEffects" (click)="closeMenu()">
             <div class="menuContent">
                 <ul>
-                    <li routerLinkActive="active"><a routerLink="about">Біо</a></li>
-                    <li routerLinkActive="active"><a routerLink="news">Новини</a></li>
-                    <li routerLinkActive="active"><a routerLink="works">Твори</a></li>
-                    <li routerLinkActive="active"><a routerLink="projects">Проєкти</a></li>
-                    <li routerLinkActive="active"><a routerLink="contact">Контакт</a></li>
+                    <li routerLinkActive="active" (click)="setActive($event)">
+                        <a routerLink="about" class="navLink">Біо</a>
+                    </li>
+                    <li routerLinkActive="active" (click)="setActive($event)">
+                        <a routerLink="news" class="navLink">Новини</a>
+                    </li>
+                    <li routerLinkActive="active" (click)="setActive($event)">
+                        <a routerLink="works" class="navLink">Твори</a>
+                    </li>
+                    <li routerLinkActive="active" (click)="setActive($event)">
+                        <a routerLink="projects" class="navLink">Проєкти</a>
+                    </li>
+                    <li routerLinkActive="active" (click)="setActive($event)">
+                        <a routerLink="contact" class="navLink">Контакт</a>
+                    </li>
                 </ul>
             </div>
         </div>

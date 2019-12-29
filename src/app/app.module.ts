@@ -24,7 +24,6 @@ import { AdminComponent } from './admin/admin.component';
 import { AdminWorksComponent } from './admin/admin-works/admin-works.component';
 import { AdminProjectsComponent } from './admin/admin-projects/admin-projects.component';
 import { LoginComponent } from './admin/login/login.component';
-import { AdminContactComponent } from './admin/admin-contact/admin-contact.component';
 import { AdminAboutComponent } from './admin/admin-about/admin-about.component';
 
 // firebase
@@ -42,6 +41,7 @@ import { TitleOpacityComponent } from './components/title-opacity/title-opacity.
 import { UploadImageComponent } from './components/upload-image/upload-image.component';
 import { ChapterizeWorksPipe } from './shared/pipes/chapterize-works.pipe';
 import { SelectedWorksPipe } from './shared/pipes/selected-works.pipe';
+import { AdminVideosComponent } from './admin/admin-videos/admin-videos.component';
 
 @NgModule({
   declarations: [
@@ -58,13 +58,13 @@ import { SelectedWorksPipe } from './shared/pipes/selected-works.pipe';
     AdminWorksComponent,
     AdminProjectsComponent,
     LoginComponent,
-    AdminContactComponent,
     AdminAboutComponent,
     TransparentComponent,
     TitleOpacityComponent,
     UploadImageComponent,
     ChapterizeWorksPipe,
     SelectedWorksPipe,
+    AdminVideosComponent,
   ],
   imports: [
     BrowserModule,

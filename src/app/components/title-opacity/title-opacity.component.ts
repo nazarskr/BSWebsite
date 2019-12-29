@@ -12,7 +12,6 @@ export class TitleOpacityComponent implements OnInit {
   constructor(private scrollDispatcher: ScrollDispatcher) { }
 
   ngOnInit() {
-    console.log(this.title);
   }
   scrollingEvents() {
     this.scrollDispatcher.scrolled().subscribe(() =>  {

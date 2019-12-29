@@ -1,4 +1,5 @@
 <div id="adminWorksInner">
+    <h2>Твори</h2>
     <div id="piecesTable">
         <table mat-table [dataSource]="works" class="full-width">
             <ng-container matColumnDef="position">
@@ -48,7 +49,7 @@
     <div id="addNewPiece" [hidden]="submitted">
         <h4 [hidden]="update">Додати новий твір</h4>
         <h4 [hidden]="!update">Редагувати твір</h4>
-        <form class="example-form" (ngSubmit)="onSubmit()" #adminWorksForm="ngForm">
+        <form class="example-form" (ngSubmit)="onSubmit()">
             <mat-form-field class="full-width">
                 <input 
                     matInput 
