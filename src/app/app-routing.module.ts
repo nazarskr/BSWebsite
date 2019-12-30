@@ -10,6 +10,8 @@ import { AdminComponent } from './admin/admin.component';
 import { LoginComponent } from './admin/login/login.component';
 import { AdminGuard } from '../app/admin/login/login.component';
 
+import { EnglishComponent } from './components/english/english.component';
+
 const routes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
   {path: 'home', component: HomeComponent},
@@ -20,6 +22,7 @@ const routes: Routes = [
   {path: 'contact', component: ContactComponent},
   {path: 'admin', component: AdminComponent, canActivate: [AdminGuard]},
   {path: 'login', component: LoginComponent},
+  {path: 'english', component: EnglishComponent},
   {path: '**', redirectTo: '/home'}
 ];
 

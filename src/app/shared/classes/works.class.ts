@@ -4,6 +4,9 @@ export class Piece {
     instr: string;
     duration: number;
     year: string;
+    audioUrl: string;
+    videoUrl: string;
+    pdfUrl: string;
     chapter: string;
     selected: boolean;
 }

@@ -13,6 +13,7 @@ export class AdminWorksComponent implements OnInit {
   displayedColumns: string[] = [
     'position', 'title', 'instr',
     'duration', 'year', 'chapter',
+    'audio', 'video', 'pdf',
     'selected', 'edit', 'delete'
   ];
   chapters = [

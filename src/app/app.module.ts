@@ -42,6 +42,7 @@ import { UploadImageComponent } from './components/upload-image/upload-image.com
 import { ChapterizeWorksPipe } from './shared/pipes/chapterize-works.pipe';
 import { SelectedWorksPipe } from './shared/pipes/selected-works.pipe';
 import { AdminVideosComponent } from './admin/admin-videos/admin-videos.component';
+import { EnglishComponent } from './components/english/english.component';
 
 @NgModule({
   declarations: [
@@ -65,6 +66,7 @@ import { AdminVideosComponent } from './admin/admin-videos/admin-videos.componen
     ChapterizeWorksPipe,
     SelectedWorksPipe,
     AdminVideosComponent,
+    EnglishComponent,
   ],
   imports: [
     BrowserModule,

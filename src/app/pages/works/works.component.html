@@ -17,10 +17,13 @@
                 {{piece.instr}} <b>&middot;</b>
                 {{piece.duration}}' <b>&middot;</b>
                 {{piece.year}} <br>
-                (<a href="https://soundcloud.com/nazar-skrypnyk/451a" target="_blank">Audio</a>
-                | <a href="https://www.youtube.com/watch?v=Xx3tNahq54A" target="_blank">Video</a>
-                | <a href="https://firebasestorage.googleapis.com/v0/b/bohdansehinwebsite.appspot.com/o/HP%207%3A1%20suite%201.pdf?alt=media&token=ea3bdf7e-4b14-46fb-b303-1b905c04fa58" target="_blank">PDF</a>)
-                </p>
+                <a *ngIf="piece.audioUrl" href="{{piece.audioUrl}}" target="_blank">Audio</a>
+                <span *ngIf="piece.audioUrl && piece.videoUrl"> | </span>
+                <span *ngIf="piece.audioUrl && piece.pdfUrl && !piece.videoUrl"> | </span>
+                <a *ngIf="piece.videoUrl" href="{{piece.videoUrl}}" target="_blank">Video</a>
+                <span *ngIf="piece.videoUrl && piece.pdfUrl"> | </span>
+                <a *ngIf="piece.pdfUrl" href="{{piece.pdfUrl}}" target="_blank">PDF</a>
+            </p>
         </div>
     </div>
     <div id="worksAll" class="worksSection">
@@ -31,80 +34,103 @@
                 <b>{{piece.title}}</b> &middot;
                 {{piece.instr}} &middot;
                 {{piece.duration}}' &middot;
-                {{piece.year}} &middot;
-                <a href="https://soundcloud.com/nazar-skrypnyk/451a" target="_blank">Audio</a>
-                | <a href="https://www.youtube.com/watch?v=Xx3tNahq54A" target="_blank">Video</a>
-                | <a href="https://firebasestorage.googleapis.com/v0/b/bohdansehinwebsite.appspot.com/o/HP%207%3A1%20suite%201.pdf?alt=media&token=ea3bdf7e-4b14-46fb-b303-1b905c04fa58" target="_blank">PDF</a>
+                {{piece.year}} &middot;<br>
+                <a *ngIf="piece.audioUrl" href="{{piece.audioUrl}}" target="_blank">Audio</a>
+                <span *ngIf="piece.audioUrl && piece.videoUrl"> | </span>
+                <span *ngIf="piece.audioUrl && piece.pdfUrl && !piece.videoUrl"> | </span>
+                <a *ngIf="piece.videoUrl" href="{{piece.videoUrl}}" target="_blank">Video</a>
+                <span *ngIf="piece.videoUrl && piece.pdfUrl"> | </span>
+                <a *ngIf="piece.pdfUrl" href="{{piece.pdfUrl}}" target="_blank">PDF</a> 
             </p>
             <h6>Камерні</h6>
             <p *ngFor="let piece of works | chapterizeWorks: 'chamber(2-4)'">
                 <b>{{piece.title}}</b> &middot;
                 {{piece.instr}} &middot;
                 {{piece.duration}}' &middot;
-                {{piece.year}} &middot;
-                <a href="https://soundcloud.com/nazar-skrypnyk/451a" target="_blank">Audio</a>
-                | <a href="https://www.youtube.com/watch?v=Xx3tNahq54A" target="_blank">Video</a>
-                | <a href="https://firebasestorage.googleapis.com/v0/b/bohdansehinwebsite.appspot.com/o/HP%207%3A1%20suite%201.pdf?alt=media&token=ea3bdf7e-4b14-46fb-b303-1b905c04fa58" target="_blank">PDF</a>
+                {{piece.year}} &middot; <br>
+                <a *ngIf="piece.audioUrl" href="{{piece.audioUrl}}" target="_blank">Audio</a>
+                <span *ngIf="piece.audioUrl && piece.videoUrl"> | </span>
+                <span *ngIf="piece.audioUrl && piece.pdfUrl && !piece.videoUrl"> | </span>
+                <a *ngIf="piece.videoUrl" href="{{piece.videoUrl}}" target="_blank">Video</a>
+                <span *ngIf="piece.videoUrl && piece.pdfUrl"> | </span>
+                <a *ngIf="piece.pdfUrl" href="{{piece.pdfUrl}}" target="_blank">PDF</a>
             </p>
             <h6>Ансамбль</h6>
             <p *ngFor="let piece of works | chapterizeWorks: 'ensemble(5+)'">
                 <b>{{piece.title}}</b> &middot;
                 {{piece.instr}} &middot;
                 {{piece.duration}}' &middot;
-                {{piece.year}} &middot;
-                <a href="https://soundcloud.com/nazar-skrypnyk/451a" target="_blank">Audio</a>
-                | <a href="https://www.youtube.com/watch?v=Xx3tNahq54A" target="_blank">Video</a>
-                | <a href="https://firebasestorage.googleapis.com/v0/b/bohdansehinwebsite.appspot.com/o/HP%207%3A1%20suite%201.pdf?alt=media&token=ea3bdf7e-4b14-46fb-b303-1b905c04fa58" target="_blank">PDF</a>
+                {{piece.year}} &middot; <br>
+                <a *ngIf="piece.audioUrl" href="{{piece.audioUrl}}" target="_blank">Audio</a>
+                <span *ngIf="piece.audioUrl && piece.videoUrl"> | </span>
+                <span *ngIf="piece.audioUrl && piece.pdfUrl && !piece.videoUrl"> | </span>
+                <a *ngIf="piece.videoUrl" href="{{piece.videoUrl}}" target="_blank">Video</a>
+                <span *ngIf="piece.videoUrl && piece.pdfUrl"> | </span>
+                <a *ngIf="piece.pdfUrl" href="{{piece.pdfUrl}}" target="_blank">PDF</a>
             </p>
             <h6>Оркестр</h6>
             <p *ngFor="let piece of works | chapterizeWorks: 'orchestra'">
                 <b>{{piece.title}}</b> &middot;
                 {{piece.instr}} &middot;
                 {{piece.duration}}' &middot;
-                {{piece.year}} &middot;
-                <a href="https://soundcloud.com/nazar-skrypnyk/451a" target="_blank">Audio</a>
-                | <a href="https://www.youtube.com/watch?v=Xx3tNahq54A" target="_blank">Video</a>
-                | <a href="https://firebasestorage.googleapis.com/v0/b/bohdansehinwebsite.appspot.com/o/HP%207%3A1%20suite%201.pdf?alt=media&token=ea3bdf7e-4b14-46fb-b303-1b905c04fa58" target="_blank">PDF</a>
+                {{piece.year}} &middot; <br>
+                <a *ngIf="piece.audioUrl" href="{{piece.audioUrl}}" target="_blank">Audio</a>
+                <span *ngIf="piece.audioUrl && piece.videoUrl"> | </span>
+                <span *ngIf="piece.audioUrl && piece.pdfUrl && !piece.videoUrl"> | </span>
+                <a *ngIf="piece.videoUrl" href="{{piece.videoUrl}}" target="_blank">Video</a>
+                <span *ngIf="piece.videoUrl && piece.pdfUrl"> | </span>
+                <a *ngIf="piece.pdfUrl" href="{{piece.pdfUrl}}" target="_blank">PDF</a>
             </p>
             <h6>Хор</h6>
             <p *ngFor="let piece of works | chapterizeWorks: 'choir'">
                 <b>{{piece.title}}</b> &middot;
                 {{piece.instr}} &middot;
                 {{piece.duration}}' &middot;
-                {{piece.year}} &middot;
-                <a href="https://soundcloud.com/nazar-skrypnyk/451a" target="_blank">Audio</a>
-                | <a href="https://www.youtube.com/watch?v=Xx3tNahq54A" target="_blank">Video</a>
-                | <a href="https://firebasestorage.googleapis.com/v0/b/bohdansehinwebsite.appspot.com/o/HP%207%3A1%20suite%201.pdf?alt=media&token=ea3bdf7e-4b14-46fb-b303-1b905c04fa58" target="_blank">PDF</a>
+                {{piece.year}} &middot; <br>
+                <a *ngIf="piece.audioUrl" href="{{piece.audioUrl}}" target="_blank">Audio</a>
+                <span *ngIf="piece.audioUrl && piece.videoUrl"> | </span>
+                <span *ngIf="piece.audioUrl && piece.pdfUrl && !piece.videoUrl"> | </span>
+                <a *ngIf="piece.videoUrl" href="{{piece.videoUrl}}" target="_blank">Video</a>
+                <span *ngIf="piece.videoUrl && piece.pdfUrl"> | </span>
+                <a *ngIf="piece.pdfUrl" href="{{piece.pdfUrl}}" target="_blank">PDF</a>
             </p>
             <h6>Голос/Хор і Ансамбль/Оркестр</h6>
             <p *ngFor="let piece of works | chapterizeWorks: 'voice/choir & ensemble/orchestra'">
                 <b>{{piece.title}}</b> &middot;
                 {{piece.instr}} &middot;
                 {{piece.duration}}' &middot;
-                {{piece.year}} &middot;
-                <a href="https://soundcloud.com/nazar-skrypnyk/451a" target="_blank">Audio</a>
-                | <a href="https://www.youtube.com/watch?v=Xx3tNahq54A" target="_blank">Video</a>
-                | <a href="https://firebasestorage.googleapis.com/v0/b/bohdansehinwebsite.appspot.com/o/HP%207%3A1%20suite%201.pdf?alt=media&token=ea3bdf7e-4b14-46fb-b303-1b905c04fa58" target="_blank">PDF</a>
-            </p>
+                {{piece.year}} &middot; <br>
+                <a *ngIf="piece.audioUrl" href="{{piece.audioUrl}}" target="_blank">Audio</a>
+                <span *ngIf="piece.audioUrl && piece.videoUrl"> | </span>
+                <span *ngIf="piece.audioUrl && piece.pdfUrl && !piece.videoUrl"> | </span>
+                <a *ngIf="piece.videoUrl" href="{{piece.videoUrl}}" target="_blank">Video</a>
+                <span *ngIf="piece.videoUrl && piece.pdfUrl"> | </span>
+                <a *ngIf="piece.pdfUrl" href="{{piece.pdfUrl}}" target="_blank">PDF</a> 
             <h6>Електроніка</h6>
             <p *ngFor="let piece of works | chapterizeWorks: 'electronics'">
                 <b>{{piece.title}}</b> &middot;
                 {{piece.instr}} &middot;
                 {{piece.duration}}' &middot;
-                {{piece.year}} &middot; 
-                <a href="https://soundcloud.com/nazar-skrypnyk/451a" target="_blank">Audio</a>
-                | <a href="https://www.youtube.com/watch?v=Xx3tNahq54A" target="_blank">Video</a>
-                | <a href="https://firebasestorage.googleapis.com/v0/b/bohdansehinwebsite.appspot.com/o/HP%207%3A1%20suite%201.pdf?alt=media&token=ea3bdf7e-4b14-46fb-b303-1b905c04fa58" target="_blank">PDF</a>
+                {{piece.year}} &middot; <br>
+                <a *ngIf="piece.audioUrl" href="{{piece.audioUrl}}" target="_blank">Audio</a>
+                <span *ngIf="piece.audioUrl && piece.videoUrl"> | </span>
+                <span *ngIf="piece.audioUrl && piece.pdfUrl && !piece.videoUrl"> | </span>
+                <a *ngIf="piece.videoUrl" href="{{piece.videoUrl}}" target="_blank">Video</a>
+                <span *ngIf="piece.videoUrl && piece.pdfUrl"> | </span>
+                <a *ngIf="piece.pdfUrl" href="{{piece.pdfUrl}}" target="_blank">PDF</a>
             </p>
             <h6>Театр/Сцена</h6>
             <p *ngFor="let piece of works | chapterizeWorks: 'theatre/stage'">
                 <b>{{piece.title}}</b> &middot;
                 {{piece.instr}} &middot;
                 {{piece.duration}}' &middot;
-                {{piece.year}} &middot; 
-                <a href="https://soundcloud.com/nazar-skrypnyk/451a" target="_blank">Audio</a>
-                | <a href="https://www.youtube.com/watch?v=Xx3tNahq54A" target="_blank">Video</a>
-                | <a href="https://firebasestorage.googleapis.com/v0/b/bohdansehinwebsite.appspot.com/o/HP%207%3A1%20suite%201.pdf?alt=media&token=ea3bdf7e-4b14-46fb-b303-1b905c04fa58" target="_blank">PDF</a>
+                {{piece.year}} &middot; <br>
+                <a *ngIf="piece.audioUrl" href="{{piece.audioUrl}}" target="_blank">Audio</a>
+                <span *ngIf="piece.audioUrl && piece.videoUrl"> | </span>
+                <span *ngIf="piece.audioUrl && piece.pdfUrl && !piece.videoUrl"> | </span>
+                <a *ngIf="piece.videoUrl" href="{{piece.videoUrl}}" target="_blank">Video</a>
+                <span *ngIf="piece.videoUrl && piece.pdfUrl"> | </span>
+                <a *ngIf="piece.pdfUrl" href="{{piece.pdfUrl}}" target="_blank">PDF</a>
             </p>
         </div>
         <div id="chamberWorks"></div>
