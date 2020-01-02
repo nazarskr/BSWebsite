@@ -1,1 +1,20 @@
-<div id="news"></div>
+<div id="news">
+    <div id="newsBackground" class="fixedBackground">
+        <app-title-opacity [title]=title></app-title-opacity>
+    </div>
+    <app-transparent></app-transparent>
+    <div id="newsInner">
+        <div class="newsOne" *ngFor="let new of news">
+            <h4 class="newsOneTitle">{{new.date.toDate() | date: 'dd.MM.yyyy'}} | {{new.title}} | {{new.city}}</h4>
+            <div class="newsOneInfo">
+                <img src="{{new.imageUrl}}" alt="ambivalence" srcset="" class="newsOneImage" *ngIf="new.imageUrl">
+                {{new.info}}
+            </div>
+            <br>
+            <div class="newsOneFooter">{{new.timePlaceEtc}} |
+                 <span *ngIf="new.tickets">{{new.tickets}} | </span>
+                <a href="{{new.moreInfoUrl}}" target="_blank">&thinsp;Більше...&thinsp;</a>
+            </div>
+        </div>
+    </div>
+</div>

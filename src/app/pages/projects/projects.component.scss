@@ -3,20 +3,38 @@
     #projectsBackground {
         background-image: url('../../../assets/projectsBack.jpg');
     }
-    #projectsList {
+    #projectsNav {
         background-color: white;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        height: 2000px;
-        h2 {
-            padding: 20px;
+        padding: 10px 50px;
+        position: -webkit-sticky;
+        position: sticky;
+        top: 70px;
+        z-index: 3;
+        ul {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            text-align: center;
+            margin-bottom: 0;
+            li {
+                list-style-type: none;
+                text-transform: uppercase;
+                a {
+                    cursor: pointer;
+                }
+                a:hover {
+                    color: black;
+                }
+            }
         }
-        p {
-            margin: 20px 30px;
-            text-align: justify;
+    }
+    .projectsSection {
+        height: 100vh;
+        background-color: white;
+        h4 {
+            text-align: center;
+            letter-spacing: 1px;
+            padding-top: 25px;
         }
     }
 }

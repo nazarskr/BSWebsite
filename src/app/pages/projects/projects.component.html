@@ -3,9 +3,24 @@
         <app-title-opacity [title]=title></app-title-opacity>
     </div>
     <app-transparent></app-transparent>
-    <div id="projectsList">
-        <h2>List of projects</h2>
-        <h4>Контрасти</h4>
-        <iframe width="640" height="480" src="https://www.youtube.com/embed/videoseries?list=PLY2gcgwMGDmuSsS6if5ka5TF7ZEK8BU3Q" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    <div id="projectsNav">
+        <ul>
+            <li><a (click)="onScrollElem('projectsLong')">Регулярні проєкти</a></li>
+            <li><a (click)="onScrollElem('projectsShort')">Разові проєкти</a></li>
+        </ul>
+    </div>
+    <div id="projectsInner">
+        <div id="projectsLong" class="projectsSection" *ngIf="projects">
+            <h4>Регулярні проєкти</h4>
+            <div class="regularProject" *ngFor="let project of projects | chapterizeProjects: true">
+                <h6>{{project.title}}</h6>
+            </div>
+        </div>
+        <div id="projectsShort" class="projectsSection" *ngIf="projects">
+            <h4>Разові проєкти</h4>
+            <div class="nonRegularProject" *ngFor="let project of projects | chapterizeProjects: false">
+                <h6>{{project.title}}</h6>
+            </div>
+        </div>
     </div>
 </div>

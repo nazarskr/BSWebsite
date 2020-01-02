@@ -5,16 +5,16 @@
     <app-transparent></app-transparent>
     <div id="adminList">
         <ul>
-            <li><a (click)="onScrollElem('adminAbout')">About</a></li>
-            <li><a (click)="onScrollElem('adminWorks')">Works</a></li>
-            <li><a (click)="onScrollElem('adminVideos')">Videos</a></li>
-            <li><a (click)="onScrollElem('adminProjects')">Projects</a></li>
+            <li><a (click)="onScrollElem('adminAbout')">Біо</a></li>
+            <li><a (click)="onScrollElem('adminWorks')">Твори</a></li>
+            <li><a (click)="onScrollElem('adminProjects')">Проєкти</a></li>
+            <li><a (click)="onScrollElem('adminNews')">Новини</a></li>
         </ul>
     </div>
     <app-admin-about id="adminAbout"></app-admin-about>
     <app-admin-works id="adminWorks"></app-admin-works>
-    <app-admin-videos id="adminVideos"></app-admin-videos>
     <app-admin-projects id="adminProjects">
         <app-upload-image></app-upload-image>
     </app-admin-projects>
+    <app-admin-news id="adminNews"></app-admin-news>
 </div>

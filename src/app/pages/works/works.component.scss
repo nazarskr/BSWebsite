@@ -1,7 +1,7 @@
 #works {
     margin-bottom: 0;
     #worksBackground {
-        background-image: url('../../../assets/worksBack.JPG');
+        background-image: url('../../../assets/worksBack.jpg');
     }
     #worksNav {
         background-color: white;
@@ -40,8 +40,20 @@
             letter-spacing: 4px;
         }
         p {
-            a:hover {
+            .titleText {
+                letter-spacing: 1px;
+            }
+            .orderText {
+                font-weight: 600;
+                font-style: italic;
+            }
+            a {
                 color: brown;
+                padding: 2px;
+            }
+            a:hover {
+                color: white;
+                background-color: black;
             }
         }
     }

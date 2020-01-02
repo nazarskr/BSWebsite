@@ -33,16 +33,16 @@ import { AngularFireStorageModule } from 'angularfire2/storage';
 import { NgxDropzoneModule } from 'ngx-dropzone';
 import { environment } from 'src/environments/environment';
 import { OrderModule } from 'ngx-order-pipe';
-// youtube
 import { HttpClientModule } from '@angular/common/http';
-import { EmbedVideo } from 'ngx-embed-video';
 import { TransparentComponent } from './components/transparent/transparent.component';
 import { TitleOpacityComponent } from './components/title-opacity/title-opacity.component';
 import { UploadImageComponent } from './components/upload-image/upload-image.component';
 import { ChapterizeWorksPipe } from './shared/pipes/chapterize-works.pipe';
 import { SelectedWorksPipe } from './shared/pipes/selected-works.pipe';
-import { AdminVideosComponent } from './admin/admin-videos/admin-videos.component';
 import { EnglishComponent } from './components/english/english.component';
+import { UploadFileComponent } from './components/upload-file/upload-file.component';
+import { AdminNewsComponent } from './admin/admin-news/admin-news.component';
+import { ChapterizeProjectsPipe } from './shared/pipes/chapterize-projects.pipe';
 
 @NgModule({
   declarations: [
@@ -65,8 +65,10 @@ import { EnglishComponent } from './components/english/english.component';
     UploadImageComponent,
     ChapterizeWorksPipe,
     SelectedWorksPipe,
-    AdminVideosComponent,
     EnglishComponent,
+    UploadFileComponent,
+    AdminNewsComponent,
+    ChapterizeProjectsPipe,
   ],
   imports: [
     BrowserModule,
@@ -85,8 +87,7 @@ import { EnglishComponent } from './components/english/english.component';
     AngularFirestoreModule,
     OrderModule,
     NgxDropzoneModule,
-    HttpClientModule,
-    EmbedVideo.forRoot()
+    HttpClientModule
   ],
   providers: [{ provide: FirestoreSettingsToken, useValue: {} }],
   bootstrap: [AppComponent]

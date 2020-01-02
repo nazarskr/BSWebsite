@@ -13,10 +13,15 @@
         <h4>Вибрані твори</h4>
         <div id="worksSelected" *ngIf="works">
             <p *ngFor="let piece of works | selectedWorks">
-                <b>{{piece.title}} </b> <b>&middot;</b>
-                {{piece.instr}} <b>&middot;</b>
-                {{piece.duration}}' <b>&middot;</b>
+                <b class="titleText">{{piece.title}}</b>
+                -
+                {{piece.instr}} 
+                <span *ngIf="piece.texts">({{piece.texts}})</span>
+                <b>&middot;</b>
+                {{piece.duration}}'
+                <b>&middot;</b>
                 {{piece.year}} <br>
+                <span *ngIf="piece.order" class="orderText">{{piece.order}}<br></span>
                 <a *ngIf="piece.audioUrl" href="{{piece.audioUrl}}" target="_blank">Audio</a>
                 <span *ngIf="piece.audioUrl && piece.videoUrl"> | </span>
                 <span *ngIf="piece.audioUrl && piece.pdfUrl && !piece.videoUrl"> | </span>
@@ -31,10 +36,15 @@
         <div id="worksChaptered" *ngIf="works">
             <h6>Соло</h6>
             <p *ngFor="let piece of works | chapterizeWorks: 'solo'">
-                <b>{{piece.title}}</b> &middot;
-                {{piece.instr}} &middot;
-                {{piece.duration}}' &middot;
-                {{piece.year}} &middot;<br>
+                <b class="titleText">{{piece.title}}</b> 
+                -
+                {{piece.instr}}
+                <span *ngIf="piece.texts" class="lightText">({{piece.texts}})</span>
+                <b>&middot;</b>
+                {{piece.duration}}'
+                <b>&middot;</b>
+                {{piece.year}}<br>
+                <span *ngIf="piece.order" class="orderText">{{piece.order}}<br></span>
                 <a *ngIf="piece.audioUrl" href="{{piece.audioUrl}}" target="_blank">Audio</a>
                 <span *ngIf="piece.audioUrl && piece.videoUrl"> | </span>
                 <span *ngIf="piece.audioUrl && piece.pdfUrl && !piece.videoUrl"> | </span>
@@ -44,10 +54,15 @@
             </p>
             <h6>Камерні</h6>
             <p *ngFor="let piece of works | chapterizeWorks: 'chamber(2-4)'">
-                <b>{{piece.title}}</b> &middot;
-                {{piece.instr}} &middot;
-                {{piece.duration}}' &middot;
-                {{piece.year}} &middot; <br>
+                <b class="titleText">{{piece.title}}</b> 
+                -
+                {{piece.instr}}
+                <span *ngIf="piece.texts" class="lightText">({{piece.texts}})</span>
+                <b>&middot;</b>
+                {{piece.duration}}'
+                <b>&middot;</b>
+                {{piece.year}}<br>
+                <span *ngIf="piece.order" class="orderText">{{piece.order}}<br></span>
                 <a *ngIf="piece.audioUrl" href="{{piece.audioUrl}}" target="_blank">Audio</a>
                 <span *ngIf="piece.audioUrl && piece.videoUrl"> | </span>
                 <span *ngIf="piece.audioUrl && piece.pdfUrl && !piece.videoUrl"> | </span>
@@ -57,10 +72,15 @@
             </p>
             <h6>Ансамбль</h6>
             <p *ngFor="let piece of works | chapterizeWorks: 'ensemble(5+)'">
-                <b>{{piece.title}}</b> &middot;
-                {{piece.instr}} &middot;
-                {{piece.duration}}' &middot;
-                {{piece.year}} &middot; <br>
+                <b class="titleText">{{piece.title}}</b> 
+                -
+                {{piece.instr}}
+                <span *ngIf="piece.texts" class="lightText">({{piece.texts}})</span>
+                <b>&middot;</b>
+                {{piece.duration}}'
+                <b>&middot;</b>
+                {{piece.year}}<br>
+                <span *ngIf="piece.order" class="orderText">{{piece.order}}<br></span>
                 <a *ngIf="piece.audioUrl" href="{{piece.audioUrl}}" target="_blank">Audio</a>
                 <span *ngIf="piece.audioUrl && piece.videoUrl"> | </span>
                 <span *ngIf="piece.audioUrl && piece.pdfUrl && !piece.videoUrl"> | </span>
@@ -70,10 +90,15 @@
             </p>
             <h6>Оркестр</h6>
             <p *ngFor="let piece of works | chapterizeWorks: 'orchestra'">
-                <b>{{piece.title}}</b> &middot;
-                {{piece.instr}} &middot;
-                {{piece.duration}}' &middot;
-                {{piece.year}} &middot; <br>
+                <b class="titleText">{{piece.title}}</b> 
+                -
+                {{piece.instr}}
+                <span *ngIf="piece.texts" class="lightText">({{piece.texts}})</span>
+                <b>&middot;</b>
+                {{piece.duration}}'
+                <b>&middot;</b>
+                {{piece.year}}<br>
+                <span *ngIf="piece.order" class="orderText">{{piece.order}}<br></span>
                 <a *ngIf="piece.audioUrl" href="{{piece.audioUrl}}" target="_blank">Audio</a>
                 <span *ngIf="piece.audioUrl && piece.videoUrl"> | </span>
                 <span *ngIf="piece.audioUrl && piece.pdfUrl && !piece.videoUrl"> | </span>
@@ -83,10 +108,15 @@
             </p>
             <h6>Хор</h6>
             <p *ngFor="let piece of works | chapterizeWorks: 'choir'">
-                <b>{{piece.title}}</b> &middot;
-                {{piece.instr}} &middot;
-                {{piece.duration}}' &middot;
-                {{piece.year}} &middot; <br>
+                <b class="titleText">{{piece.title}}</b> 
+                -
+                {{piece.instr}}
+                <span *ngIf="piece.texts" class="lightText">({{piece.texts}})</span>
+                <b>&middot;</b>
+                {{piece.duration}}'
+                <b>&middot;</b>
+                {{piece.year}}<br>
+                <span *ngIf="piece.order" class="orderText">{{piece.order}}<br></span>
                 <a *ngIf="piece.audioUrl" href="{{piece.audioUrl}}" target="_blank">Audio</a>
                 <span *ngIf="piece.audioUrl && piece.videoUrl"> | </span>
                 <span *ngIf="piece.audioUrl && piece.pdfUrl && !piece.videoUrl"> | </span>
@@ -96,10 +126,15 @@
             </p>
             <h6>Голос/Хор і Ансамбль/Оркестр</h6>
             <p *ngFor="let piece of works | chapterizeWorks: 'voice/choir & ensemble/orchestra'">
-                <b>{{piece.title}}</b> &middot;
-                {{piece.instr}} &middot;
-                {{piece.duration}}' &middot;
+                <b class="titleText">{{piece.title}}</b> 
+                -
+                {{piece.instr}}
+                <span *ngIf="piece.texts" class="lightText">({{piece.texts}})</span>
+                <b>&middot;</b>
+                {{piece.duration}}'
+                <b>&middot;</b>
                 {{piece.year}} &middot; <br>
+                <span *ngIf="piece.order" class="orderText">{{piece.order}}<br></span>
                 <a *ngIf="piece.audioUrl" href="{{piece.audioUrl}}" target="_blank">Audio</a>
                 <span *ngIf="piece.audioUrl && piece.videoUrl"> | </span>
                 <span *ngIf="piece.audioUrl && piece.pdfUrl && !piece.videoUrl"> | </span>
@@ -108,10 +143,15 @@
                 <a *ngIf="piece.pdfUrl" href="{{piece.pdfUrl}}" target="_blank">PDF</a> 
             <h6>Електроніка</h6>
             <p *ngFor="let piece of works | chapterizeWorks: 'electronics'">
-                <b>{{piece.title}}</b> &middot;
-                {{piece.instr}} &middot;
-                {{piece.duration}}' &middot;
-                {{piece.year}} &middot; <br>
+                <b class="titleText">{{piece.title}}</b> 
+                -
+                {{piece.instr}}
+                <span *ngIf="piece.texts" class="lightText">({{piece.texts}})</span>
+                <b>&middot;</b>
+                {{piece.duration}}'
+                <b>&middot;</b>
+                {{piece.year}}<br>
+                <span *ngIf="piece.order" class="orderText">{{piece.order}}<br></span>
                 <a *ngIf="piece.audioUrl" href="{{piece.audioUrl}}" target="_blank">Audio</a>
                 <span *ngIf="piece.audioUrl && piece.videoUrl"> | </span>
                 <span *ngIf="piece.audioUrl && piece.pdfUrl && !piece.videoUrl"> | </span>
@@ -121,10 +161,15 @@
             </p>
             <h6>Театр/Сцена</h6>
             <p *ngFor="let piece of works | chapterizeWorks: 'theatre/stage'">
-                <b>{{piece.title}}</b> &middot;
-                {{piece.instr}} &middot;
-                {{piece.duration}}' &middot;
-                {{piece.year}} &middot; <br>
+                <b class="titleText">{{piece.title}}</b> 
+                -
+                {{piece.instr}}
+                <span *ngIf="piece.texts" class="lightText">({{piece.texts}})</span>
+                <b>&middot;</b>
+                {{piece.duration}}'
+                <b>&middot;</b>
+                {{piece.year}}<br>
+                <span *ngIf="piece.order" class="orderText">{{piece.order}}<br></span>
                 <a *ngIf="piece.audioUrl" href="{{piece.audioUrl}}" target="_blank">Audio</a>
                 <span *ngIf="piece.audioUrl && piece.videoUrl"> | </span>
                 <span *ngIf="piece.audioUrl && piece.pdfUrl && !piece.videoUrl"> | </span>

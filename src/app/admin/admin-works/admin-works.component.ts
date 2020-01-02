@@ -11,8 +11,8 @@ import { map } from 'rxjs/operators';
 export class AdminWorksComponent implements OnInit {
   piece: Piece = new Piece();
   displayedColumns: string[] = [
-    'position', 'title', 'instr',
-    'duration', 'year', 'chapter',
+    'position', 'title', 'instr', 'texts',
+    'order', 'duration', 'year', 'chapter',
     'audio', 'video', 'pdf',
     'selected', 'edit', 'delete'
   ];
@@ -55,6 +55,7 @@ export class AdminWorksComponent implements OnInit {
     if (!this.update) {
       this.submitted = true;
       this.savePiece();
+      alert('Додано успішно!');
     }
   }
   editPiece(piece) {

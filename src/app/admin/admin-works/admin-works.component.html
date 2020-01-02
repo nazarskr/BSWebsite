@@ -14,6 +14,14 @@
                 <th mat-header-cell *matHeaderCellDef>Склад</th>
                 <td mat-cell *matCellDef="let piece" class="worksTd">{{piece.instr}}</td>
             </ng-container>
+            <ng-container matColumnDef="texts">
+                <th mat-header-cell *matHeaderCellDef>Дод текст (слова, колаборація, etc)</th>
+                <td mat-cell *matCellDef="let piece" class="worksTd">{{piece.texts}}</td>
+            </ng-container>
+            <ng-container matColumnDef="order">
+                <th mat-header-cell *matHeaderCellDef>Зомовлення</th>
+                <td mat-cell *matCellDef="let piece" class="worksTd">{{piece.order}}</td>
+            </ng-container>
             <ng-container matColumnDef="duration">
                 <th mat-header-cell *matHeaderCellDef>Тривалість</th>
                 <td mat-cell *matCellDef="let piece" class="worksTd">{{piece.duration}}</td>
@@ -80,8 +88,24 @@
                     name="pieceInstr"
                     [(ngModel)]="piece.instr"
                     required
-                    placeholder="Інструментальний склад (vn, fl, etc.):">
-                    <mat-error *ngIf="!piece.instr">Введи інструментальний склад!</mat-error>
+                    placeholder="Cклад:">
+                    <mat-error *ngIf="!piece.instr">Введи склад!</mat-error>
+            </mat-form-field>
+            <mat-form-field class="full-width">
+                <input 
+                    matInput 
+                    id="pieceTexts"
+                    name="pieceTexts"
+                    [(ngModel)]="piece.texts"
+                    placeholder="Інші тексти (автори слів, колаборація):">
+            </mat-form-field>
+            <mat-form-field class="full-width">
+                <input 
+                    matInput 
+                    id="pieceOrder"
+                    name="pieceOrder"
+                    [(ngModel)]="piece.order"
+                    placeholder="Інформація про замовлення:">
             </mat-form-field>
             <mat-form-field class="full-width">
                 <input 
