@@ -48,14 +48,25 @@ export class AdminWorksComponent implements OnInit {
     this.piece = new Piece();
   }
   savePiece() {
-    this.worksService.createPiece(this.piece);
-    this.piece = new Piece();
+    if
+    (this.piece.title
+      && this.piece.duration
+      && this.piece.instr
+      && this.piece.chapter
+      && this.piece.year) {
+        this.worksService.createPiece(this.piece);
+        this.piece = new Piece();
+        alert('Додано успішно!');
+        this.submitted = true;
+    } else if (!this.piece.chapter) {
+      alert('Вибери розділ!');
+    } else {
+      alert('Введи всі дані!');
+    }
   }
   onSubmit() {
     if (!this.update) {
-      this.submitted = true;
       this.savePiece();
-      alert('Додано успішно!');
     }
   }
   editPiece(piece) {

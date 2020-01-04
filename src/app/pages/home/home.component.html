@@ -2,6 +2,15 @@
     <div id="homeBackground" class="fixedBackground"></div>
     <app-transparent></app-transparent>
     <div id="homeNews">
-        <h2>Latest news</h2>
+        <h3>Останні новини</h3>
+        <div id="homeNewsInner">
+            <div class="homeNewsOne" *ngFor="let new of news | slice:0:3">
+                <img src="{{new.imageUrl}}" alt="" srcset="">
+                <h6><a href="{{new.moreInfoUrl}}" target="_blank">{{new.title}}</a></h6>
+                <p>{{new.date.toDate() | date: 'dd/MM/yyyy'}}</p>
+                <p class="homeNewsOneInfo">{{new.info}}</p>
+            </div>
+        </div>
+        <button mat-stroked-button (click)="navToNews()">Показати більше...</button>
     </div>
 </div>

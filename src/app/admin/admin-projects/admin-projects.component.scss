@@ -1,6 +1,15 @@
 #adminProjectsInner {
+    background-color: lightgray;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     h2 {
         padding: 30px;
         text-align: center;
+    }
+    h4 {
+        padding: 30px;
     }
 }

@@ -1,15 +1,17 @@
 #news {
     #newsBackground {
-        background-image: url('../../../assets/newsBack.JPG');
+        background-image: url('../../../assets/projectsBack.JPG');
     }
     #newsInner {
         background-color: white;
-        padding: 20px;
+        padding: 20px 30px 100px 30px;
         .newsOne {
+            padding: 25px;
             .newsOneTitle {
                 color: brown;
             }
             .newsOneInfo {
+                text-align: justify;
                 .newsOneImage {
                     width: 200px;
                     float: left;

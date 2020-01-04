@@ -36,7 +36,6 @@ import { OrderModule } from 'ngx-order-pipe';
 import { HttpClientModule } from '@angular/common/http';
 import { TransparentComponent } from './components/transparent/transparent.component';
 import { TitleOpacityComponent } from './components/title-opacity/title-opacity.component';
-import { UploadImageComponent } from './components/upload-image/upload-image.component';
 import { ChapterizeWorksPipe } from './shared/pipes/chapterize-works.pipe';
 import { SelectedWorksPipe } from './shared/pipes/selected-works.pipe';
 import { EnglishComponent } from './components/english/english.component';
@@ -62,7 +61,6 @@ import { ChapterizeProjectsPipe } from './shared/pipes/chapterize-projects.pipe'
     AdminAboutComponent,
     TransparentComponent,
     TitleOpacityComponent,
-    UploadImageComponent,
     ChapterizeWorksPipe,
     SelectedWorksPipe,
     EnglishComponent,

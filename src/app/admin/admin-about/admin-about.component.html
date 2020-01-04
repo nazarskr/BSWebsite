@@ -1,4 +1,4 @@
-<div id="adminAboutInner">
+<div id="adminAboutInner" *ngIf="about">
     <h2>Біо</h2>
     <mat-form-field class="full-width">
         <textarea
@@ -6,23 +6,26 @@
             matInput 
             id="aboutBio"
             name="aboutBio"
-            [(ngModel)]="bio"
+            [(ngModel)]="about.bio"
             required
             placeholder="Біо (англ)">
-        </textarea
-        >
+        </textarea>
         <mat-error *ngIf="bio">Тут має бути біографія</mat-error>
     </mat-form-field>
+    <button mat-raised-button (click)="updateAbout()">Оновити</button>
+    <hr>
     <mat-form-field class="full-width">
         <input 
             matInput 
             id="aboutPressKitUrl"
             name="aboutPressKitUrl"
-            [(ngModel)]="pressKitUrl"
+            [(ngModel)]="about.pressKitUrl"
             required
             readonly
             placeholder="Посилання на прескіт">
             <mat-error *ngIf="pressKitUrl">Закинь файл</mat-error>
     </mat-form-field>
-    <p>Відвідин сайту: {{counter}}</p>
+    <app-upload-file [fileAccept]="fileAccept" [filePath]="filePath" (fileUrl)="getUrl($event)"></app-upload-file>
+    <hr>
+    <p>Відвідин сайту: {{about.counter}}</p>
 </div>

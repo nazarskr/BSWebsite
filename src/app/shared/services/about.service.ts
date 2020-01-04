@@ -16,7 +16,6 @@ export class AboutService {
     return this.aboutDoc.valueChanges();
   }
   updateAbout(value: any): Promise<void> {
-    return this.aboutDoc
-    .update(value);
+    return this.aboutDoc.update(value);
   }
 }

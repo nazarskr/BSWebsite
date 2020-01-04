@@ -5,21 +5,71 @@
     <app-transparent></app-transparent>
     <div id="projectsNav">
         <ul>
-            <li><a (click)="onScrollElem('projectsLong')">Регулярні проєкти</a></li>
-            <li><a (click)="onScrollElem('projectsShort')">Разові проєкти</a></li>
+            <li><a (click)="onScrollElem('projectsLong')">Довготривалі проєкти</a></li>
+            <li><a (click)="onScrollElem('projectsShort')">Короткотривалі проєкти</a></li>
         </ul>
     </div>
     <div id="projectsInner">
         <div id="projectsLong" class="projectsSection" *ngIf="projects">
-            <h4>Регулярні проєкти</h4>
-            <div class="regularProject" *ngFor="let project of projects | chapterizeProjects: true">
-                <h6>{{project.title}}</h6>
+            <h4>Довготривалі проєкти</h4>
+            <br>
+            <hr>
+            <div class="regularProject project" *ngFor="let project of projects | chapterizeProjects: true">
+                <div class="projectLeft">
+                    <img src="{{project.imageUrl}}" alt="project image" srcset="">
+                    <h5>{{project.title}}</h5>
+                    <p>{{project.position}}</p>
+                    <p>(з {{project.dateFrom.toDate() | date: 'yyyy'}})</p>
+                </div>
+                <div class="projectRight">
+                    <p>{{project.info}}</p>
+                    <p *ngIf="project.websiteUrl"><b>Сайт:&ensp;</b> <a href="{{project.websiteUrl}}" target="_blank">{{project.websiteUrl}}</a></p>
+                    <p class="projectLinks" *ngIf="project.facebookUrl || project.soundcloudUrl || project.youtubeUrl"><b>Посилання:</b> 
+                        <a href="{{project.facebookUrl}}" *ngIf="project.facebookUrl" target="_blank">
+                            <img src="../../../assets/facebook-color.png" alt="facebook" srcset="">
+                        </a>
+                        <a href="{{project.soundcloudUrl}}" *ngIf="project.soundcloudUrl" target="_blank">
+                            <img src="../../../assets/soundcloud-color.png" alt="soundcloud" srcset="">
+                        </a>
+                        <a href="{{project.youtubeUrl}}" *ngIf="project.youtubeUrl" target="_blank">
+                            <img src="../../../assets/youtube-color.png" alt="youtube" srcset="">
+                        </a>
+                    </p>
+                </div>
+                <br>
+                <hr>
             </div>
         </div>
+        <div id="projectsBar"></div>
         <div id="projectsShort" class="projectsSection" *ngIf="projects">
-            <h4>Разові проєкти</h4>
-            <div class="nonRegularProject" *ngFor="let project of projects | chapterizeProjects: false">
-                <h6>{{project.title}}</h6>
+            <h4>Короткотривалі проєкти</h4>
+            <br>
+            <hr>
+            <div class="nonRegularProject project" *ngFor="let project of projects | chapterizeProjects: false">
+                <div class="projectLeft">
+                    <img src="{{project.imageUrl}}" alt="project image" srcset="">
+                    <h5>{{project.title}}</h5>
+                    <p>{{project.position}}</p>
+                    <p *ngIf="!project.dateTo">{{project.dateFrom.toDate() | date: 'dd.MM.yyyy'}}</p>
+                    <p *ngIf="project.dateTo">{{project.dateFrom.toDate() | date: 'dd.MM'}}-{{project.dateTo.toDate() | date: 'dd.MM.yyyy'}}</p>
+                </div>
+                <div class="projectRight">
+                    <p>{{project.info}}</p>
+                    <p *ngIf="project.websiteUrl"><b>Сайт:&ensp;</b> <a href="{{project.websiteUrl}}" target="_blank">{{project.websiteUrl}}</a></p>
+                    <p class="projectLinks" *ngIf="project.facebookUrl || project.soundcloudUrl || project.youtubeUrl"><b>Посилання:</b> 
+                        <a href="{{project.facebookUrl}}" *ngIf="project.facebookUrl" target="_blank">
+                            <img src="../../../assets/facebook-color.png" alt="facebook" srcset="">
+                        </a>
+                        <a href="{{project.soundcloudUrl}}" *ngIf="project.soundcloudUrl" target="_blank">
+                            <img src="../../../assets//soundcloud-color.png" alt="soundcloud" srcset="">
+                        </a>
+                        <a href="{{project.youtubeUrl}}" *ngIf="project.youtubeUrl" target="_blank">
+                            <img src="../../../assets/youtube-color.png" alt="youtube" srcset="">
+                        </a>
+                    </p>
+                </div>
+                <br>
+                <hr>
             </div>
         </div>
     </div>

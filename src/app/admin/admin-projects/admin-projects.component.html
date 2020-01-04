@@ -1,3 +1,119 @@
 <div id="adminProjectsInner">
     <h2>Проєкти</h2>
+    <h4>Довготривалі проєкти</h4>
+    <div id="regularProjectTable" *ngIf="projects">
+        <table mat-table [dataSource]="projects | chapterizeProjects: true" class="full-width">
+            <ng-container matColumnDef="number">
+                <th mat-header-cell *matHeaderCellDef class="normalTh">#</th>
+                <td mat-cell *matCellDef="let project; let i = index" class="paddingTd"> {{i}}</td>
+            </ng-container>
+            <ng-container matColumnDef="title">
+                <th mat-header-cell *matHeaderCellDef class="normalTh">Назва</th>
+                <td mat-cell *matCellDef="let project" class="narrowTd">{{project.title}}</td>
+            </ng-container>
+            <ng-container matColumnDef="imageUrl">
+                <th mat-header-cell *matHeaderCellDef class="normalTh">Зображення</th>
+                <td mat-cell *matCellDef="let project" class="narrowTd" >{{project.imageUrl}}</td>
+            </ng-container>
+            <ng-container matColumnDef="position">
+                <th mat-header-cell *matHeaderCellDef class="normalTh">Посада</th>
+                <td mat-cell *matCellDef="let project" class="narrowTd">{{project.position}}</td>
+            </ng-container>
+            <ng-container matColumnDef="dateFrom">
+                <th mat-header-cell *matHeaderCellDef class="normalTh">Дата з</th>
+                <td mat-cell *matCellDef="let project" class="narrowTd" >{{project.dateFrom}}</td>
+            </ng-container>
+            <ng-container matColumnDef="dateTo">
+                <th mat-header-cell *matHeaderCellDef class="normalTh">Дата до</th>
+                <td mat-cell *matCellDef="let project" class="narrowTd" >{{project.dateTo}}</td>
+            </ng-container>
+            <ng-container matColumnDef="info">
+                <th mat-header-cell *matHeaderCellDef class="normalTh">Інфо</th>
+                <td mat-cell *matCellDef="let project" class="narrowTd">{{project.info}}</td>
+            </ng-container>
+            <ng-container matColumnDef="websiteUrl">
+                <th mat-header-cell *matHeaderCellDef class="normalTh">Сайт</th>
+                <td mat-cell *matCellDef="let project" class="narrowTd" >{{project.websiteUrl}}</td>
+            </ng-container>
+            <ng-container matColumnDef="links">
+                <th mat-header-cell *matHeaderCellDef class="normalTh">Лінки</th>
+                <td mat-cell *matCellDef="let project" class="narrowTd" >
+                    {{project.facebookUrl}},
+                    {{project.soundcloudUrl}},
+                    {{project.youtubeUrl}}</td>
+            </ng-container>
+            <ng-container matColumnDef="edit">
+                <th mat-header-cell *matHeaderCellDef class="normalTh">Ред</th>
+                <td mat-cell *matCellDef="let project" class="paddingTd">
+                    <button mat-mini-fab color="accent" (click)="editProject(project)">Ред</button>
+                </td>
+            </ng-container>
+            <ng-container matColumnDef="delete">
+                <th mat-header-cell *matHeaderCellDef class="normalTh">Вид</th>
+                <td mat-cell *matCellDef="let project" class="paddingTd">
+                    <button mat-mini-fab color="warn" (click)="deleteProject(project)">Вид</button>
+                </td>
+            </ng-container>
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>          
+    </div>
+    <h4>Короткотривалі проєкти</h4>
+    <div id="rareProjectTable" *ngIf="projects">
+        <table mat-table [dataSource]="projects | chapterizeProjects: false" class="full-width">
+            <ng-container matColumnDef="number">
+                <th mat-header-cell *matHeaderCellDef class="normalTh">#</th>
+                <td mat-cell *matCellDef="let project; let i = index" class="paddingTd"> {{i}}</td>
+            </ng-container>
+            <ng-container matColumnDef="title">
+                <th mat-header-cell *matHeaderCellDef class="normalTh">Назва</th>
+                <td mat-cell *matCellDef="let project" class="narrowTd">{{project.title}}</td>
+            </ng-container>
+            <ng-container matColumnDef="imageUrl">
+                <th mat-header-cell *matHeaderCellDef class="normalTh">Зображення</th>
+                <td mat-cell *matCellDef="let project" class="narrowTd">{{project.imageUrl}}</td>
+            </ng-container>
+            <ng-container matColumnDef="position">
+                <th mat-header-cell *matHeaderCellDef class="normalTh">Посада</th>
+                <td mat-cell *matCellDef="let project" class="narrowTd">{{project.position}}</td>
+            </ng-container>
+            <ng-container matColumnDef="dateFrom">
+                <th mat-header-cell *matHeaderCellDef class="normalTh">Дата з</th>
+                <td mat-cell *matCellDef="let project" class="narrowTd">{{project.dateFrom}}</td>
+            </ng-container>
+            <ng-container matColumnDef="dateTo">
+                <th mat-header-cell *matHeaderCellDef class="normalTh">Дата до</th>
+                <td mat-cell *matCellDef="let project" class="narrowTd">{{project.dateTo}}</td>
+            </ng-container>
+            <ng-container matColumnDef="info">
+                <th mat-header-cell *matHeaderCellDef class="normalTh">Інфо</th>
+                <td mat-cell *matCellDef="let project" class="narrowTd">{{project.info}}</td>
+            </ng-container>
+            <ng-container matColumnDef="websiteUrl">
+                <th mat-header-cell *matHeaderCellDef class="normalTh">Сайт</th>
+                <td mat-cell *matCellDef="let project" class="narrowTd">{{project.websiteUrl}}</td>
+            </ng-container>
+            <ng-container matColumnDef="links">
+                <th mat-header-cell *matHeaderCellDef class="normalTh">Лінки</th>
+                <td mat-cell *matCellDef="let project" class="narrowTd">
+                    {{project.facebookUrl}},
+                    {{project.soundcloudUrl}},
+                    {{project.youtubeUrl}}</td>
+            </ng-container>
+            <ng-container matColumnDef="edit">
+                <th mat-header-cell *matHeaderCellDef class="normalTh">Ред</th>
+                <td mat-cell *matCellDef="let project" class="paddingTd">
+                    <button mat-mini-fab color="accent" (click)="editProject(project)">Ред</button>
+                </td>
+            </ng-container>
+            <ng-container matColumnDef="delete">
+                <th mat-header-cell *matHeaderCellDef class="normalTh">Вид</th>
+                <td mat-cell *matCellDef="let project" class="paddingTd">
+                    <button mat-mini-fab color="warn" (click)="deleteProject(project)">Вид</button>
+                </td>
+            </ng-container>
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>          
+    </div>
 </div>

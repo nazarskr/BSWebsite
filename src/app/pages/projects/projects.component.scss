@@ -1,7 +1,7 @@
 #projects {
     margin-bottom: 0;
     #projectsBackground {
-        background-image: url('../../../assets/projectsBack.jpg');
+        background-image: url('../../../assets/newsBack.jpg');
     }
     #projectsNav {
         background-color: white;
@@ -29,12 +29,63 @@
         }
     }
     .projectsSection {
-        height: 100vh;
         background-color: white;
+        padding: 0 25px;
         h4 {
             text-align: center;
             letter-spacing: 1px;
             padding-top: 25px;
         }
+        .project {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            padding: 40px;
+            .projectLeft {
+                padding: 0 10px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                width: 50%;
+                text-align: center;
+                img {
+                    width: 70%;
+                    margin: 0 15% 20px 15%;
+                }
+            }
+            .projectRight {
+                padding: 0 10px;
+                width: 50%;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                p {
+                    text-align: justify;
+                    a:hover {
+                        color: grey;
+                    }
+                }
+                .projectLinks {
+                    line-height: 30px;
+                    a {
+                        img {
+                            filter: invert(10%);
+                            width: 30px;
+                            height: 30px;
+                            margin-left: 10px;
+                        }
+                    }
+                }
+            }
+            hr {
+                width: 100%;
+            }
+        }
+    }
+    #projectsBar {
+        width: 100vw;
+        height: 70px;
+        background: transparent;
     }
 }

@@ -12,10 +12,10 @@ export class ProjectsComponent implements OnInit {
   title = 'Проєкти';
   projects: Project[];
   constructor(private projectsService: ProjectsService) {
-    this.getProjects();
   }
 
   ngOnInit() {
+    this.getProjects();
   }
   getProjects() {
     this.projectsService.getProjects().snapshotChanges()

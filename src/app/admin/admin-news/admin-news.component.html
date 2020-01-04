@@ -1,1 +1,167 @@
-<p>admin-news works!</p>
+<div id="adminNewsInner">
+    <h2>Новини</h2>
+    <div id="newsTable" *ngIf="news">
+        <table mat-table [dataSource]="news" class="full-width">
+            <ng-container matColumnDef="number">
+                <th mat-header-cell *matHeaderCellDef class="normalTh">#</th>
+                <td mat-cell *matCellDef="let new; let i = index" class="paddingTd"> {{i}}</td>
+            </ng-container>
+            <ng-container matColumnDef="title">
+                <th mat-header-cell *matHeaderCellDef class="normalTh">Назва</th>
+                <td mat-cell *matCellDef="let new" class="narrowTd">{{new.title}}</td>
+            </ng-container>
+            <ng-container matColumnDef="imageUrl">
+                <th mat-header-cell *matHeaderCellDef class="normalTh">Зображення</th>
+                <td mat-cell *matCellDef="let new" class="narrowTd">{{new.imageUrl}}</td>
+            </ng-container>
+            <ng-container matColumnDef="city">
+                <th mat-header-cell *matHeaderCellDef class="normalTh">Місто</th>
+                <td mat-cell *matCellDef="let new" class="narrowTd">{{new.city}}</td>
+            </ng-container>
+            <ng-container matColumnDef="date">
+                <th mat-header-cell *matHeaderCellDef class="normalTh">Дата</th>
+                <td mat-cell *matCellDef="let new" class="narrowTd">{{new.date}}</td>
+            </ng-container>
+            <ng-container matColumnDef="info">
+                <th mat-header-cell *matHeaderCellDef class="normalTh">Інфо</th>
+                <td mat-cell *matCellDef="let new" class="narrowTd">{{new.info}}</td>
+            </ng-container>
+            <ng-container matColumnDef="timePlaceEtc">
+                <th mat-header-cell *matHeaderCellDef class="normalTh">Час, місце</th>
+                <td mat-cell *matCellDef="let new" class="narrowTd">{{new.timePlaceEtc}}</td>
+            </ng-container>
+            <ng-container matColumnDef="tickets">
+                <th mat-header-cell *matHeaderCellDef class="normalTh">Квитки</th>
+                <td mat-cell *matCellDef="let new" class="narrowTd">{{new.tickets}}</td>
+            </ng-container>
+            <ng-container matColumnDef="moreInfoUrl">
+                <th mat-header-cell *matHeaderCellDef class="normalTh">Більше</th>
+                <td mat-cell *matCellDef="let new" class="narrowTd">{{new.moreInfoUrl}}</td>
+            </ng-container>
+            <ng-container matColumnDef="edit">
+                <th mat-header-cell *matHeaderCellDef class="normalTh">Ред</th>
+                <td mat-cell *matCellDef="let new" class="paddingTd">
+                    <button mat-mini-fab color="accent" (click)="editNew(new)">Ред</button>
+                </td>
+            </ng-container>
+            <ng-container matColumnDef="delete">
+                <th mat-header-cell *matHeaderCellDef class="normalTh">Вид</th>
+                <td mat-cell *matCellDef="let new" class="paddingTd">
+                    <button mat-mini-fab color="warn" (click)="deleteNew(new)">Вид</button>
+                </td>
+            </ng-container>
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>          
+    </div>
+    <div id="addNewPiece" [hidden]="submitted">
+        <h4 [hidden]="update">Додати новину</h4>
+        <h4 [hidden]="!update">Редагувати новину</h4>
+        <form class="example-form" (ngSubmit)="onSubmit()">
+            <mat-form-field class="full-width">
+                <input 
+                    matInput 
+                    type="text"
+                    id="newTitle"
+                    name="newTitle"
+                    [(ngModel)]="new.title"
+                    required
+                    placeholder="Заголовок (без лапок):">
+                    <mat-error *ngIf="!new.title">Введи заголовок!</mat-error>
+            </mat-form-field>
+            <mat-form-field class="full-width">
+                <input 
+                    matInput 
+                    id="newCity"
+                    name="newCity"
+                    [(ngModel)]="new.city"
+                    required
+                    placeholder="Місто:">
+                    <mat-error *ngIf="!new.city">Введи місто!</mat-error>
+            </mat-form-field>
+            <mat-form-field class="full-width">
+                <input 
+                    matInput 
+                    id="pieceTexts"
+                    name="pieceTexts"
+                    [(ngModel)]="piece.texts"
+                    placeholder="Інші тексти (автори слів, колаборація):">
+            </mat-form-field>
+            <mat-form-field class="full-width">
+                <input 
+                    matInput 
+                    id="pieceOrder"
+                    name="pieceOrder"
+                    [(ngModel)]="piece.order"
+                    placeholder="Інформація про замовлення:">
+            </mat-form-field>
+            <mat-form-field class="full-width">
+                <input 
+                    matInput 
+                    type="number"
+                    id="pieceDuration"
+                    name="pieceDuration"
+                    [(ngModel)]="piece.duration"
+                    required
+                    placeholder="Тривалість твору (хв):">
+                    <mat-error *ngIf="!piece.duration">Введи тривалість твору!</mat-error>
+            </mat-form-field>
+            <mat-form-field class="full-width">
+                <input 
+                    matInput 
+                    type="text"
+                    id="pieceYear"
+                    name="pieceYear"
+                    [(ngModel)]="piece.year"
+                    required
+                    placeholder="Рік написання (2015, 2001/2017):">
+                    <mat-error *ngIf="!piece.year">Введи інструментальний склад!</mat-error>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label class="full-width">Вибери розділ</mat-label>
+                <mat-select id="pieceChapter" name="pieceChapter" [(ngModel)]="piece.chapter">
+                    <mat-option *ngFor="let chapter of chapters" [value]="chapter">
+                    {{chapter}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+            <section>
+                <mat-checkbox id="pieceSelected" name="pieceSelected" [(ngModel)]="piece.selected">Вибрані</mat-checkbox>
+            </section>
+            <mat-form-field class="full-width">
+                <input 
+                    matInput 
+                    type="text"
+                    id="pieceAudioUrl"
+                    name="pieceAudioUrl"
+                    [(ngModel)]="piece.audioUrl"
+                    placeholder="Лінк на аудіо:">
+            </mat-form-field>
+            <mat-form-field class="full-width">
+                <input 
+                    matInput 
+                    type="text"
+                    id="pieceVideoUrl"
+                    name="pieceVideoUrl"
+                    [(ngModel)]="piece.videoUrl"
+                    placeholder="Лінк на відео:">
+            </mat-form-field>
+            <mat-form-field class="full-width">
+                <input 
+                    matInput 
+                    type="text"
+                    readonly
+                    id="piecePdfUrl"
+                    name="piecePdfUrl"
+                    [(ngModel)]="piece.pdfUrl"
+                    placeholder="Лінк на партитуру">
+            </mat-form-field>
+            <br>
+            <button mat-stroked-button type="submit" [hidden]="update">Додати</button>
+            <button mat-stroked-button (click)="updatePiece()" [hidden]="!update">Оновити</button>
+        </form>
+    </div>
+    <div [hidden]="!submitted" id="preAddNewPiece">
+        <button mat-raised-button (click)="newPiece()">Новий</button>
+    </div>
+</div>

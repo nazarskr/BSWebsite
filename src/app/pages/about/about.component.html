@@ -5,7 +5,7 @@
     <app-transparent></app-transparent>
     <div id="aboutBio" *ngIf="about">
         <h2>Богдан Сегін</h2>
-        <p>{{about.bio}}</p>
+        <p [innerHTML]='about.bio'></p>
         <div id="aboutPressKit">
             <button mat-stroked-button><a download="filename" href="{{about.pressKitUrl}}" target="_blank">Прес-кіт</a></button>
             <p>Включає фото високої якості, повну біографію українською та англійською мовами.<br>

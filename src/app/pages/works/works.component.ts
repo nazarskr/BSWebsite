@@ -12,10 +12,10 @@ export class WorksComponent implements OnInit {
   title = 'Твори';
   works: Piece[];
   constructor(private worksService: WorksService) {
-    this.getWorks();
   }
 
   ngOnInit() {
+    this.getWorks();
   }
   getWorks() {
     this.worksService.getWorks().snapshotChanges()
