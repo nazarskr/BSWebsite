@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { News } from '../../shared/classes';
 import { NewsService } from '../../shared/services/news.service';
 import { map } from 'rxjs/operators';
+import { AngularFireStorage } from 'angularfire2/storage';
 
 @Component({
   selector: 'app-admin-news',
@@ -9,6 +10,9 @@ import { map } from 'rxjs/operators';
   styleUrls: ['./admin-news.component.scss']
 })
 export class AdminNewsComponent implements OnInit {
+  fileAccept = '.jpg, .JPEG, .JPG, .png, .tiff, .svg';
+  filePath = 'newsImages/';
+  oldImageUrl: string;
   submitted = true;
   update = false;
   displayedColumns: string[] = [
@@ -18,7 +22,8 @@ export class AdminNewsComponent implements OnInit {
   ];
   news: News[];
   new: News = new News();
-  constructor(private newsService: NewsService) { }
+  constructor(private newsService: NewsService,
+              private afStorage: AngularFireStorage) { }
 
   ngOnInit() {
     this.getNews();
@@ -66,6 +71,7 @@ export class AdminNewsComponent implements OnInit {
     this.submitted = false;
     this.update = true;
     this.new = {...neww};
+    this.new.date = neww.date.toDate();
   }
   updateNew() {
     this.newsService
@@ -73,9 +79,24 @@ export class AdminNewsComponent implements OnInit {
       .catch(err => console.log(err));
     this.submitted = true;
   }
-  deleteProject(neww) {
+  deleteNew(neww) {
+    const sure = confirm('впевнений?');
+    if (sure) {
+      this.afStorage.storage.refFromURL(neww.imageUrl).delete();
+      this.newsService
+        .deleteNews(neww.key)
+        .catch(err => console.log(err));
+    }
+  }
+  getUrl(data) {
+    this.oldImageUrl = this.new.imageUrl;
+    this.new.imageUrl = data;
     this.newsService
-      .deleteNews(neww.key)
+      .updateNews(this.new.key, {imageUrl: this.new.imageUrl})
       .catch(err => console.log(err));
+    if (this.oldImageUrl) {
+      this.afStorage.storage.refFromURL(this.oldImageUrl).delete();
+    }
+    alert('Завантажено!');
   }
 }

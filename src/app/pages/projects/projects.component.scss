@@ -89,3 +89,29 @@
         background: transparent;
     }
 }
+@media(max-width: 630px) {
+    #projects {
+        #projectsNav {
+            ul {
+                justify-content: space-between;
+                li {
+                    a {
+                        font-size: 12px;
+                    }
+                }
+            }
+        }
+        .projectsSection {
+            padding: 0;
+            .project {
+                flex-direction: column;
+                .projectLeft {
+                    width: 100%;
+                }
+                .projectRight {
+                    width: 100%;
+                }
+            }
+        }
+    }
+}

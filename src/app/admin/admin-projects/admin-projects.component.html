@@ -116,4 +116,130 @@
             <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
         </table>          
     </div>
+    <div id="addProject" [hidden]="submitted">
+        <h4 [hidden]="update">Додати проєкт</h4>
+        <h4 [hidden]="!update">Редагувати проєкт</h4>
+        <form class="example-form" (ngSubmit)="onSubmit()">
+            <mat-form-field class="full-width">
+                <input 
+                    matInput 
+                    type="text"
+                    id="projectTitle"
+                    name="projectTitle"
+                    [(ngModel)]="project.title"
+                    required
+                    placeholder="Назва проєкту(без лапок):">
+                    <mat-error *ngIf="!project.title">Введи назву!</mat-error>
+            </mat-form-field>
+            <mat-form-field class="full-width">
+                <input 
+                    matInput 
+                    type="text"
+                    id="projectPosition"
+                    name="projectPosition"
+                    [(ngModel)]="project.position"
+                    required
+                    placeholder="Посада:">
+                    <mat-error *ngIf="!project.position">Введи посаду!</mat-error>
+            </mat-form-field>
+            <mat-form-field class="full-width">
+                <textarea 
+                    matInput 
+                    id="projectInfo"
+                    name="projectInfo"
+                    [(ngModel)]="project.info"
+                    required
+                    placeholder="Інфо">
+                </textarea>
+                <mat-error *ngIf="!project.info">Додай інфо!</mat-error>
+            </mat-form-field>
+            <section>
+                <mat-checkbox 
+                    id="projectRegular" 
+                    name="projectRegular" 
+                    [(ngModel)]="project.regular">Довготривалий
+                </mat-checkbox>
+            </section>
+            <mat-form-field>
+                <input 
+                    matInput 
+                    [matDatepicker]="pickerFrom" 
+                    placeholder="Дата з (або одна)"
+                    id="projectDateFrom"
+                    name="projectDateFrom"
+                    [(ngModel)]="project.dateFrom"
+                    required>
+                    <!-- (ngModelChange)="onDataChange($event)" -->
+                    <mat-error *ngIf="!project.dateFrom">Одна дата обов'язково!</mat-error>
+                <mat-datepicker-toggle matSuffix [for]="pickerFrom"></mat-datepicker-toggle>
+                <mat-datepicker #pickerFrom></mat-datepicker>
+            </mat-form-field>
+            <mat-form-field>
+                <input 
+                    matInput
+                    [matDatepicker]="pickerTo" 
+                    placeholder="Дата до (якщо є)"
+                    id="projectDateTo"
+                    name="projectDateTo"
+                    [(ngModel)]="project.dateTo">
+                    <!-- (ngModelChange)="onDataChange($event)" -->
+                <mat-datepicker-toggle matSuffix [for]="pickerTo"></mat-datepicker-toggle>
+                <mat-datepicker #pickerTo></mat-datepicker>
+            </mat-form-field>
+            <mat-form-field class="full-width">
+                <input 
+                    matInput
+                    type="text" 
+                    id="projectWebsiteUrl"
+                    name="projectWebsiteUrl"
+                    [(ngModel)]="project.websiteUrl"
+                    placeholder="Лінк на сайт:">
+            </mat-form-field>
+            <mat-form-field class="full-width">
+                <input 
+                    matInput 
+                    type="text"
+                    id="projectFacebookUrl"
+                    name="projectFacebookUrl"
+                    [(ngModel)]="project.facebookUrl"
+                    placeholder="Лінк на фб:">
+            </mat-form-field>
+            <mat-form-field class="full-width">
+                <input 
+                    matInput
+                    type="text" 
+                    id="projectSoundcloudUrl"
+                    name="projectSoundcloudUrl"
+                    [(ngModel)]="project.soundcloudUrl"
+                    placeholder="Лінк на soundcloud:">
+            </mat-form-field>
+            <mat-form-field class="full-width">
+                <input 
+                    matInput
+                    type="text" 
+                    id="projectYoutubeUrl"
+                    name="projectYoutubeUrl"
+                    [(ngModel)]="project.youtubeUrl"
+                    placeholder="Лінк на youtube:">
+            </mat-form-field>
+            <mat-form-field class="full-width">
+                <input 
+                    matInput 
+                    type="text"
+                    id="projectImageUrl"
+                    name="projectImageUrl"
+                    [(ngModel)]="project.imageUrl"
+                    required
+                    placeholder="Лінк на картинку">
+                    <mat-error *ngIf="!project.imageUrl">Тут має бути лінк!</mat-error>
+            </mat-form-field>
+            <app-upload-file [fileAccept]="fileAccept" [filePath]="filePath" (fileUrl)="getUrl($event)"></app-upload-file>
+            <hr>
+            <button mat-stroked-button type="submit" [hidden]="update">Додати</button>
+            <button mat-stroked-button (click)="updateProject()" [hidden]="!update">Оновити</button>
+        </form>
+    </div>
+    <div [hidden]="!submitted" id="preAddProject">
+        <button mat-raised-button (click)="newProject()">Новий</button>
+    </div>
 </div>

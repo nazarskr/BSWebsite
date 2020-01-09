@@ -5,7 +5,7 @@ import { Login } from '../../shared/classes';
 import { LoginService } from '../../shared/services/login.service';
 import { Router } from '@angular/router';
 
-let enter = true;
+let enter = false;
 
 @Component({
   selector: 'app-login',

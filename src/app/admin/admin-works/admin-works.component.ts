@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Piece } from '../../shared/classes';
 import { WorksService } from '../../shared/services/works.service';
 import { map } from 'rxjs/operators';
+import { AngularFireStorage } from 'angularfire2/storage';
 
 @Component({
   selector: 'app-admin-works',
@@ -9,6 +10,10 @@ import { map } from 'rxjs/operators';
   styleUrls: ['./admin-works.component.scss']
 })
 export class AdminWorksComponent implements OnInit {
+  fileAccept = '.pdf';
+  filePath = 'worksPdfs/';
+  oldPdfUrl: string;
+  emptyPdf: string;
   piece: Piece = new Piece();
   displayedColumns: string[] = [
     'position', 'title', 'instr', 'texts',
@@ -24,7 +29,8 @@ export class AdminWorksComponent implements OnInit {
   works: Piece[];
   submitted = true;
   update = false;
-  constructor(private worksService: WorksService) {
+  constructor(private worksService: WorksService,
+              private afStorage: AngularFireStorage) {
     this.getWorks();
   }
 
@@ -73,18 +79,35 @@ export class AdminWorksComponent implements OnInit {
     this.submitted = false;
     this.update = true;
     this.piece = {...piece};
-    console.log(this.piece);
+    this.emptyPdf = piece.pdfUrl;
   }
   updatePiece() {
+    if (this.piece.pdfUrl === '') {
+      this.afStorage.storage.refFromURL(this.emptyPdf).delete();
+    }
     this.worksService
       .updatePiece(this.piece.key, this.piece)
       .catch(err => console.log(err));
     this.submitted = true;
   }
   deletePiece(piece) {
+    const sure = confirm('впевнений?');
+    if (sure) {
+      this.worksService
+        .deletePiece(piece.key)
+        .catch(err => console.log(err));
+    }
+  }
+  getUrl(data) {
+    this.oldPdfUrl = this.piece.pdfUrl;
+    this.piece.pdfUrl = data;
     this.worksService
-      .deletePiece(piece.key)
+      .updatePiece(this.piece.key, {pdfUrl: this.piece.pdfUrl})
       .catch(err => console.log(err));
+    if (this.oldPdfUrl) {
+      this.afStorage.storage.refFromURL(this.oldPdfUrl).delete();
+    }
+    alert('Завантажено!');
   }
 }
 

@@ -1,0 +1,25 @@
+#adminNewsInner {
+    background-color: lightgray;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    h2 {
+        padding: 30px;
+        text-align: center;
+    }
+    #preAddNew {
+        padding: 50px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    #addNew {
+        width: 400px;
+        margin: 20px;
+        h4 {
+            text-align: center;
+        }
+    }
+}

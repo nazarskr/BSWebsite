@@ -1,5 +1,5 @@
 <div id="adminNewsInner">
-    <h2>Новини</h2>
+    <h2>Події</h2>
     <div id="newsTable" *ngIf="news">
         <table mat-table [dataSource]="news" class="full-width">
             <ng-container matColumnDef="number">
@@ -54,10 +54,23 @@
             <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
         </table>          
     </div>
-    <div id="addNewPiece" [hidden]="submitted">
+    <div id="addNew" [hidden]="submitted">
         <h4 [hidden]="update">Додати новину</h4>
         <h4 [hidden]="!update">Редагувати новину</h4>
         <form class="example-form" (ngSubmit)="onSubmit()">
+            <mat-form-field>
+                <input 
+                    matInput 
+                    [matDatepicker]="picker" 
+                    placeholder="Вибери дату"
+                    id="newDate"
+                    name="newDate"
+                    [(ngModel)]="new.date"
+                    required>
+                    <mat-error *ngIf="!new.date">Дата обов'язково!</mat-error>
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+              </mat-form-field>
             <mat-form-field class="full-width">
                 <input 
                     matInput 
@@ -80,88 +93,63 @@
                     <mat-error *ngIf="!new.city">Введи місто!</mat-error>
             </mat-form-field>
             <mat-form-field class="full-width">
-                <input 
+                <textarea 
                     matInput 
-                    id="pieceTexts"
-                    name="pieceTexts"
-                    [(ngModel)]="piece.texts"
-                    placeholder="Інші тексти (автори слів, колаборація):">
-            </mat-form-field>
-            <mat-form-field class="full-width">
-                <input 
-                    matInput 
-                    id="pieceOrder"
-                    name="pieceOrder"
-                    [(ngModel)]="piece.order"
-                    placeholder="Інформація про замовлення:">
-            </mat-form-field>
-            <mat-form-field class="full-width">
-                <input 
-                    matInput 
-                    type="number"
-                    id="pieceDuration"
-                    name="pieceDuration"
-                    [(ngModel)]="piece.duration"
+                    id="newInfo"
+                    name="newInfo"
+                    [(ngModel)]="new.info"
                     required
-                    placeholder="Тривалість твору (хв):">
-                    <mat-error *ngIf="!piece.duration">Введи тривалість твору!</mat-error>
+                    placeholder="Інфо">
+                </textarea>
+                <mat-error *ngIf="!new.info">Додай інфо!</mat-error>
             </mat-form-field>
             <mat-form-field class="full-width">
                 <input 
                     matInput 
-                    type="text"
-                    id="pieceYear"
-                    name="pieceYear"
-                    [(ngModel)]="piece.year"
+                    id="newTimePlaceEtc"
+                    name="newTimePlaceEtc"
+                    [(ngModel)]="new.timePlaceEtc"
                     required
-                    placeholder="Рік написання (2015, 2001/2017):">
-                    <mat-error *ngIf="!piece.year">Введи інструментальний склад!</mat-error>
+                    placeholder="Час, місце і т.д.:">
+                    <mat-error *ngIf="!new.timePlaceEtc">Введи час, місце!</mat-error>
             </mat-form-field>
-            <mat-form-field>
-                <mat-label class="full-width">Вибери розділ</mat-label>
-                <mat-select id="pieceChapter" name="pieceChapter" [(ngModel)]="piece.chapter">
-                    <mat-option *ngFor="let chapter of chapters" [value]="chapter">
-                    {{chapter}}
-                    </mat-option>
-                </mat-select>
-            </mat-form-field>
-            <section>
-                <mat-checkbox id="pieceSelected" name="pieceSelected" [(ngModel)]="piece.selected">Вибрані</mat-checkbox>
-            </section>
             <mat-form-field class="full-width">
                 <input 
                     matInput 
-                    type="text"
-                    id="pieceAudioUrl"
-                    name="pieceAudioUrl"
-                    [(ngModel)]="piece.audioUrl"
-                    placeholder="Лінк на аудіо:">
+                    id="newTickets"
+                    name="newTickets"
+                    [(ngModel)]="new.tickets"
+                    placeholder="Інфа про квитки, вхід:">
             </mat-form-field>
             <mat-form-field class="full-width">
                 <input 
                     matInput 
                     type="text"
-                    id="pieceVideoUrl"
-                    name="pieceVideoUrl"
-                    [(ngModel)]="piece.videoUrl"
-                    placeholder="Лінк на відео:">
+                    id="newMoreInfoUrl"
+                    name="newMoreInfoUrl"
+                    [(ngModel)]="new.moreInfoUrl"
+                    required
+                    placeholder="Лінк на подію в фб або сайт">
+                    <mat-error *ngIf="!new.moreInfoUrl">Тут має бути лінк!</mat-error>
             </mat-form-field>
             <mat-form-field class="full-width">
                 <input 
                     matInput 
                     type="text"
-                    readonly
-                    id="piecePdfUrl"
-                    name="piecePdfUrl"
-                    [(ngModel)]="piece.pdfUrl"
-                    placeholder="Лінк на партитуру">
+                    id="newImageUrl"
+                    name="newImageUrl"
+                    [(ngModel)]="new.imageUrl"
+                    required
+                    placeholder="Лінк на картинку">
+                    <mat-error *ngIf="!new.imageUrl">Тут має бути лінк!</mat-error>
             </mat-form-field>
-            <br>
+            <app-upload-file [fileAccept]="fileAccept" [filePath]="filePath" (fileUrl)="getUrl($event)"></app-upload-file>
+            <hr>
             <button mat-stroked-button type="submit" [hidden]="update">Додати</button>
-            <button mat-stroked-button (click)="updatePiece()" [hidden]="!update">Оновити</button>
+            <button mat-stroked-button (click)="updateNew()" [hidden]="!update">Оновити</button>
         </form>
     </div>
-    <div [hidden]="!submitted" id="preAddNewPiece">
-        <button mat-raised-button (click)="newPiece()">Новий</button>
+    <div [hidden]="!submitted" id="preAddNew">
+        <button mat-raised-button (click)="newNew()">Нова подія</button>
     </div>
 </div>

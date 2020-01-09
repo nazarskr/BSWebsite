@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Project } from '../../shared/classes';
 import { ProjectsService } from '../../shared/services/projects.service';
 import { map } from 'rxjs/operators';
+import { AngularFireStorage } from 'angularfire2/storage';
 
 @Component({
   selector: 'app-admin-projects',
@@ -9,6 +10,9 @@ import { map } from 'rxjs/operators';
   styleUrls: ['./admin-projects.component.scss']
 })
 export class AdminProjectsComponent implements OnInit {
+  fileAccept = '.jpg, .JPEG, .JPG, .png, .tiff, .svg';
+  filePath = 'projectsImages/';
+  oldImageUrl: string;
   submitted = true;
   update = false;
   displayedColumns: string[] = [
@@ -18,7 +22,8 @@ export class AdminProjectsComponent implements OnInit {
   ];
   projects: Project[];
   project: Project = new Project();
-  constructor(private projectsService: ProjectsService) {
+  constructor(private projectsService: ProjectsService,
+              private afStorage: AngularFireStorage) {
     this.getProjects();
   }
 
@@ -66,6 +71,10 @@ export class AdminProjectsComponent implements OnInit {
     this.submitted = false;
     this.update = true;
     this.project = {...project};
+    this.project.dateFrom = project.dateFrom.toDate();
+    if (project.dateTo) {
+      this.project.dateTo = project.dateTo.toDate();
+    }
   }
   updateProject() {
     this.projectsService
@@ -74,9 +83,23 @@ export class AdminProjectsComponent implements OnInit {
     this.submitted = true;
   }
   deleteProject(project) {
-    this.projectsService
-      .deleteProject(project.key)
-      .catch(err => console.log(err));
+    const sure = confirm('впевнений?');
+    if (sure) {
+      this.afStorage.storage.refFromURL(project.imageUrl).delete();
+      this.projectsService
+        .deleteProject(project.key)
+        .catch(err => console.log(err));
+    }
   }
-
+  getUrl(data) {
+    this.oldImageUrl = this.project.imageUrl;
+    this.project.imageUrl = data;
+    this.projectsService
+      .updateProject(this.project.key, {imageUrl: this.project.imageUrl})
+      .catch(err => console.log(err));
+    if (this.oldImageUrl) {
+      this.afStorage.storage.refFromURL(this.oldImageUrl).delete();
+    }
+    alert('Завантажено!');
+  }
 }

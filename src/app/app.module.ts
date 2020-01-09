@@ -5,7 +5,9 @@ import { FormsModule } from '@angular/forms';
 import { MatButtonModule,
          MatFormFieldModule,
          MatInputModule,
-         MatCardModule } from '@angular/material';
+         MatCardModule,
+         MatDatepickerModule,
+         MatNativeDateModule } from '@angular/material';
 import { MatSelectModule } from '@angular/material/select';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatTableModule } from '@angular/material/table';
@@ -80,6 +82,8 @@ import { ChapterizeProjectsPipe } from './shared/pipes/chapterize-projects.pipe'
     MatSelectModule,
     MatCheckboxModule,
     MatTableModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireStorageModule,
     AngularFirestoreModule,
@@ -87,7 +91,7 @@ import { ChapterizeProjectsPipe } from './shared/pipes/chapterize-projects.pipe'
     NgxDropzoneModule,
     HttpClientModule
   ],
-  providers: [{ provide: FirestoreSettingsToken, useValue: {} }],
+  providers: [{ provide: FirestoreSettingsToken, useValue: {} }, MatDatepickerModule, MatNativeDateModule],
   bootstrap: [AppComponent]
 })
 export class AppModule {

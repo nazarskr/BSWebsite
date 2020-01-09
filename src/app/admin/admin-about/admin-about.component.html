@@ -10,9 +10,9 @@
             required
             placeholder="Біо (англ)">
         </textarea>
-        <mat-error *ngIf="bio">Тут має бути біографія</mat-error>
+        <mat-error *ngIf="!about.bio">Тут має бути біографія</mat-error>
     </mat-form-field>
-    <button mat-raised-button (click)="updateAbout()">Оновити</button>
+    <button mat-raised-button (click)="updateBio()">Оновити</button>
     <hr>
     <mat-form-field class="full-width">
         <input 

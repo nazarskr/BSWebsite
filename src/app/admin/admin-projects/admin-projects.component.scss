@@ -9,7 +9,17 @@
         padding: 30px;
         text-align: center;
     }
-    h4 {
-        padding: 30px;
+    #preAddProject {
+        padding: 50px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    #addProject {
+        width: 400px;
+        margin: 20px;
+        h4 {
+            text-align: center;
+        }
     }
 }

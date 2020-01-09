@@ -162,13 +162,13 @@
                 <input 
                     matInput 
                     type="text"
-                    readonly
                     id="piecePdfUrl"
                     name="piecePdfUrl"
                     [(ngModel)]="piece.pdfUrl"
                     placeholder="Лінк на партитуру">
             </mat-form-field>
-            <br>
+            <app-upload-file [fileAccept]="fileAccept" [filePath]="filePath" (fileUrl)="getUrl($event)"></app-upload-file>
+            <hr>
             <button mat-stroked-button type="submit" [hidden]="update">Додати</button>
             <button mat-stroked-button (click)="updatePiece()" [hidden]="!update">Оновити</button>
         </form>

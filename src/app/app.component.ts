@@ -36,7 +36,7 @@ export class AppComponent implements OnInit {
     });
     setTimeout(() => {
       this.updateCounter();
-    }, 2000);
+    }, 5000);
 
   }
   updateCounter() {

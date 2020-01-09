@@ -28,9 +28,9 @@ export class AdminAboutComponent implements OnInit {
       this.about = about;
     });
   }
-  updateAbout() {
+  updateBio() {
     this.aboutService
-      .updateAbout(this.about)
+      .updateAbout({bio: this.about.bio})
       .catch(err => console.log(err));
     alert('Успішно оновлено!');
   }
@@ -38,7 +38,7 @@ export class AdminAboutComponent implements OnInit {
     this.oldPressKitUrl = this.about.pressKitUrl;
     this.about.pressKitUrl = data;
     this.aboutService
-      .updateAbout(this.about)
+      .updateAbout({pressKitUrl: this.about.pressKitUrl})
       .catch(err => console.log(err));
     if (this.oldPressKitUrl) {
       this.afStorage.storage.refFromURL(this.oldPressKitUrl).delete();

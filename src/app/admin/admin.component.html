@@ -6,15 +6,13 @@
     <div id="adminList">
         <ul>
             <li><a (click)="onScrollElem('adminAbout')">Біо</a></li>
+            <li><a (click)="onScrollElem('adminNews')">Події</a></li>
             <li><a (click)="onScrollElem('adminWorks')">Твори</a></li>
             <li><a (click)="onScrollElem('adminProjects')">Проєкти</a></li>
-            <li><a (click)="onScrollElem('adminNews')">Новини</a></li>
         </ul>
     </div>
     <app-admin-about id="adminAbout"></app-admin-about>
-    <app-admin-projects id="adminProjects"></app-admin-projects>
+    <app-admin-news id="adminNews"></app-admin-news>
     <app-admin-works id="adminWorks"></app-admin-works>
-    <app-admin-news id="adminNews">
-
-    </app-admin-news>
+    <app-admin-projects id="adminProjects"></app-admin-projects>
 </div>
